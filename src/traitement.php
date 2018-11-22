@@ -31,6 +31,10 @@
             $firstName = $_POST['firstname'];
             $lastName = $_POST['lastname'];
             $tmp = $bdd->query("INSERT INTO users(email, password_hash, firstname, lastname) VALUES('$email', '$hashedPassword', '$firstName', '$lastName');");
-            var_dump($tmp);
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['nom'] = $user['lastname'];
+            $_SESSION['prenom'] = $user['firstname'];
+            header('Location: ./index.php');
+            exit();
         }       
     }
