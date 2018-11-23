@@ -14,6 +14,8 @@
 <body>
     <?php if(sizeof($_SESSION) == 0) { ?>
     <a href="./pages/login.php">Se connecter</a>
-    <?php } else echo "connecté !"; ?>
+    <?php } else { ?>
+        <a href="./pages/convCreation.php"></a>
+    <?php } ?>
 </body>
 </html>
