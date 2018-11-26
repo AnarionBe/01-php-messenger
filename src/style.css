@@ -1,3 +1,59 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.container {
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1)), url("/img/LionBackground.jpg");
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.carte {
+    background-color: rgba(255,255,255,0.5);
+    width: 400px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+}
+
+.carteImage {
+    padding: 15px;
+}
+
 .logoMeow {
-    width: 5em;
+    width: 25vw;
+}
+
+.carteTexte {
+    padding: 15px;
+}
+
+h4 {
+    text-align: center;
+    font-size: 20px;
+    margin: 0;
+}
+
+p {
+    font-size: 15px;
+    text-align: center;
+    margin: 0;
+}
+
+.bouton {
+    color: white;
+    background-color: rgb(25, 125, 200);
+    align-content: center;
+    border-radius: 20px;
+    padding: 10px;
+    text-decoration: none;
 }
