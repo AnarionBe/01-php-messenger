@@ -9,8 +9,9 @@
         die('Erreur : '.$e->getMessage());
     }
 
+    $user = new User($_POST['email']);
+
     if(!isset($_POST['signup'])) { //cas de login
-        $user = new User($_POST['email']);
         if($user->load($bdd)){
             if($user->checkPassword($_POST['password'])) {
                 $_SESSION['email'] = $user->getEmail();
@@ -19,40 +20,18 @@
                 header('Location: ../index.php');
                 exit();
             } else echo "Le mot de passe n'est pas valide";
-        } else {
-            echo "L'utilisateur recherché n'existe pas !";
-        }
+        } else echo "L'utilisateur recherché n'existe pas !";
     } else { //cas d'incription
-
+        if($user->load($bdd)) echo "L'addresse mail à déjà été utilisée";
+        else {
+            $user->setPassWord($_POST['password']);
+            $user->setEmail($_POST['email']);
+            $user->setLastName($_POST['lastname']);
+            $user->setFirstName($_POST['firstname']);
+            $user->add($bdd);
+            $_SESSION['email'] = $user->getEmail();
+            $_SESSION['nom'] = $user->getLastName();
+            $_SESSION['prenom'] = $user->getFirstName();
+            header('Location: ../index.php');
+        }
     }
-    
-    /*$email = $_POST['email'];
-    $password = $_POST['password'];
-    $result = $bdd->query("SELECT * FROM users WHERE email = '$email'");
-    $user = $result->fetch();
-    
-    if(!isset($_POST['signup'])) { //cas de login
-        if(!$user) echo "Email ou password incorrect !";
-        else {
-            if(password_verify($password, $user['password_hash'])) {
-                $_SESSION['email'] = $user['email'];
-                $_SESSION['nom'] = $user['lastname'];
-                $_SESSION['prenom'] = $user['firstname'];
-                header('Location: ./index.php');
-                exit();
-            } else echo "Mot de passe non-valide";
-        }
-    } else { //cas d'incription
-        if($user) echo "L'utilisateur existe déjà";
-        else {
-            $hashedPassword = password_hash($_POST['password'], PASSWORD_BCRYPT);
-            $firstName = $_POST['firstname'];
-            $lastName = $_POST['lastname'];
-            $tmp = $bdd->query("INSERT INTO users(email, password_hash, firstname, lastname) VALUES('$email', '$hashedPassword', '$firstName', '$lastName');");
-            $_SESSION['email'] = $user['email'];
-            $_SESSION['nom'] = $user['lastname'];
-            $_SESSION['prenom'] = $user['firstname'];
-            header('Location: ./index.php');
-            exit();
-        }       
-    } */

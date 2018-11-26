@@ -36,6 +36,10 @@
             $this->firstName = $firstName;
         }
 
+        public function setPassword($password) {
+            $this->password_hash = password_hash($password, PASSWORD_BCRYPT);
+        }
+
         public function load($bdd) {
             $result = $bdd->query("SELECT * FROM users WHERE email = '$this->email'");
             $tmp = $result->fetch();
@@ -44,6 +48,10 @@
             $this->firstName = $tmp['firstname'];
             $this->lastName = $tmp['lastname'];
             return true;
+        }
+
+        public function add($bdd) {
+            $bdd->query("INSERT INTO users(email, password_hash, firstname, lastname) VALUES('$this->email', '$this->password_hash', '$this->firstName', '$this->lastName');");
         }
 
         public function checkPassword($password) {
