@@ -37,7 +37,7 @@
         }
 
         public function setPassword($password) {
-            $this->password_hash = password_hash($password, PASSWORD_BCRYPT);
+            $this->password_hash = password_hash($password, PASSWORD_BCRYPT, ["cost" => 12]);
         }
 
         public function load($bdd) {
@@ -57,5 +57,13 @@
         public function checkPassword($password) {
             if(password_verify($password, $this->password_hash)) return true;
             else return false;
+        }
+
+        public function toJson() {
+            $data = array();
+            $data[] = $this->firstName;
+            var_dump($this->firstName);
+            array_push($data, $this->firstName);
+            return $data;
         }
     }

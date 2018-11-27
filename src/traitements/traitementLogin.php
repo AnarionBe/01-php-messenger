@@ -33,5 +33,6 @@
             $_SESSION['nom'] = $user->getLastName();
             $_SESSION['prenom'] = $user->getFirstName();
             header('Location: ../index.php');
+            exit();
         }
     }

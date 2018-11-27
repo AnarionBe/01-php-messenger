@@ -10,7 +10,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="../createConv.php" method="post">
+    <form action="../traitements/createConv.php" method="post">
         <input type="text" name="title" id="title"><label for="title">Titre</label>
         <br><input type="submit">
     </form>
