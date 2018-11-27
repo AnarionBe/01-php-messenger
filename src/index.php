@@ -27,7 +27,9 @@
                 <h4>Bienvenue sur le chat Meow!</h4>
                 <p>Parce que le(s) chat(s) c'est la vie.</p>
                 <?php if(sizeof($_SESSION) == 0) { ?>
-                <a href="./pages/login.php" class="bouton">Se Meower</a>
+                <div class="bouton">
+                    <a href="./pages/login.php" class="boutonSeConnecter">Se Meower</a>
+                </div>
                 <?php } else echo "connecté !"; ?>
             </div>
                 
