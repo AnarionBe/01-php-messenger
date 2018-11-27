@@ -12,7 +12,7 @@
 <header></header>
 
     <div class="profil" align="center">
-        <h2>Profil utilisateur</h2>
+        <h2>Meowser</h2>
         <img src="" alt="avatar_user"/>
 
         <p> Salut <?php echo $user ?> ! </p>
