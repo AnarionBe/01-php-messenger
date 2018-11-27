@@ -1,5 +1,7 @@
 <?php
     session_start();
+    require("./traitements/caching.php");
+    setCache();
 ?>
 
 <!DOCTYPE html>
@@ -13,10 +15,8 @@
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet"> 
 </head>
 
-
 <body>
     <div class="container">
-
         <!-- Carte de connexion -->
         <div class="carte" >
             <div class="carteImage">
@@ -38,8 +38,6 @@
         <footer class = "footer">
             <?php include("footer.php");?>
         </footer>
-
     </div>
-
 </body>
 </html>

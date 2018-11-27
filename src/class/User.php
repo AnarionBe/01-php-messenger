@@ -61,9 +61,7 @@
 
         public function toJson() {
             $data = array();
-            $data[] = $this->firstName;
-            var_dump($this->firstName);
-            array_push($data, $this->firstName);
+            array_push($data, $this->email, $this->firstName, $this->lastName);
             return $data;
         }
     }
