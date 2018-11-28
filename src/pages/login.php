@@ -16,7 +16,7 @@
     <div class="container">
         <form action="../traitement.php" method="post">
             <div id="connection">
-                <input type="text" name="email" placeholder="Email">
+                <input type="text" name="email" placeholder="Email" id="email">
                 <br><input type="password" name="password" placeholder="Mot de passe">
                 <br><input type="checkbox" name="signup" id="signup"><label for="signup">Créer un compte</label>
             </div>
