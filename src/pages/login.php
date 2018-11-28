@@ -17,7 +17,11 @@
         <form action="../traitement.php" method="post">
             <div id="connection">
                 <input type="text" name="email" placeholder="Email" id="email">
-                <br><input type="password" name="password" placeholder="Mot de passe">
+                <br><input type="password" name="password" placeholder="Mot de passe" id="password">
+                <label for="password" id="helpLabel">
+                    <img src="../img/help.png" alt="icone infos">
+                    <span class="tooltiptext">Le mot de passe doit contenir au moins une lettre majuscule, une lettre minuscule et un chiffre</span>
+                </label>
                 <br><input type="checkbox" name="signup" id="signup"><label for="signup">Créer un compte</label>
             </div>
             <div id="inscription">

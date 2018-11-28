@@ -31,6 +31,7 @@ form {
     background-color: rgba(255,255,255,0.5);
     padding: 50px;
     border-radius: 20px;
+    
 }
 
 input {
@@ -46,4 +47,28 @@ input {
 
 .correct {
     border-color: green;
+}
+
+#helpLabel:hover {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltiptext {
+    position: absolute;
+    width: 200px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.295);
+    border: 0px;
+    font-size: 12px;
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    display: none;
+}
+
+#helpLabel:hover .tooltiptext{
+    display: inline;
 }
