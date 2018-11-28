@@ -13,30 +13,25 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-    <form action="../traitements/traitementLogin.php" method="post">
-        <input type="text" name="email" id="email"><label for="email">Email</label>
-        <input type="password" name="password" id="password"><label for="password">Mot de passe</label>
-        <br><br><input type="checkbox" name="signup" id="signup"><label for="signup">Créer un compte</label>
-        <br><input type="text" name="firstname" id="firstname"><label for="firstname">Prénom</label>
-        <input type="text" name="lastname" id="lastname"><label for="lastname">Nom de famille</label>
-        <br><input type="submit">
-    </form>
-=======
     <div class="container">
         <form action="../traitement.php" method="post">
-            <input type="text" name="email">
-            <input type="password" name="password">
-            <input type="checkbox" name="signup" id="signup"><label for="signup">Créer un compte</label>
-            <input type="text" name="firstname">
-            <input type="text" name="lastname">
-            <br><input type="submit">
+            <div id="connection">
+                <input type="text" name="email" placeholder="Email">
+                <br><input type="password" name="password" placeholder="Mot de passe">
+                <br><input type="checkbox" name="signup" id="signup"><label for="signup">Créer un compte</label>
+            </div>
+            <div id="inscription">
+                <br><input type="text" name="lastname" placeholder="Nom">
+                <br><input type="text" name="firstname" placeholder="Prénom">
+                <br>
+            </div>
+            <br><input type="submit" value="Se connecter" id="button">
         </form>
         
         <footer class = "footer">
             <?php include("../footer.php");?>
+            <script src="./js/login.js"></script>
         </footer>
     </div>
->>>>>>> origin/olivier
 </body>
 </html>
