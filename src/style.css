@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Varela Round', sans-serif;
+    position: relative
+}
+
+.container {
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1)), url("./img/Lion-Background.jpg");
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.carte {
+    background-color: rgba(255,255,255,0.5);
+    width: 400px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+}
+
+.carteImage {
+    padding: 15px;
+}
+
+.logoMeow {
+    width: 300px;
+}
+
+.carteTexte {
+    padding: 15px;
+}
+
+h4 {
+    text-align: center;
+    font-size: 20px;
+    margin: 0;
+}
+
+p {
+    font-size: 15px;
+    text-align: center;
+    margin: 0;
+}
+
+.bouton {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.boutonSeConnecter {
+    color: white;
+    background-color: rgb(25, 125, 200);
+    border-radius: 20px;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    position: absolute; bottom: 0;
+}
