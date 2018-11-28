@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     //saisie d'un mail
     emailInput = document.getElementById("email");
     emailInput.addEventListener("input", function(e) {
-        if(!(email = validateEmail(emailInput.value, "mail"))) emailInput.className = "error";
+        if(!(email = validateString(emailInput.value, "mail"))) emailInput.className = "error";
         else emailInput.className = "correct";
     });
 
