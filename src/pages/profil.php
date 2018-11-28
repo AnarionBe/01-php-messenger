@@ -1,85 +1,107 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Profil Page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-</head>
-<body>
+<?php
 
-<header></header>
+?>
 
-    <div class="profil" align="center">
-        <h2>Meowser</h2>
-        <img src="" alt="avatar_user"/>
+ <!DOCTYPE html>
+ <html lang="fr" dir="ltr">
+   <head>
+     <meta charset="utf-8">
+     <link rel="stylesheet" type="text/css" href="styleprofil.css" />
+     <title>Meowser - Modifier le profil</title>
+   </head>
+   <body>
 
-        <p> Salut <?php echo $user ?> ! </p>
+     <h1>Meowser</h1> <!--- ajout prénom a l'affichage --->
+     <h2>Modifier votre profil</h2>
 
-            <table>
-                <div class="names">
-                    <tr>
-                        <td><label for="Prénom">Prénom</label></td>
-                    </tr>
+     <p>
+       <div class="configProfile">
+         <form class="profileModif" action="" method="post">
 
-                    <tr>
-                        <td><input type="text" placeholder="Votre prénom" id="firstname" name="firstname" value=""></td>
-                    </tr>
+           <div class="lname">
 
-                    <tr>
-                        <td><label for="Nom">Nom</label></td>
-                    </tr>
+             <div class="lnameLab">
+              <label for="lname">Nom</label>
+             </div>
 
-                    <tr>
-                        <td><input type="text" placeholder="Votre nom" id="lastname" name="lastname" value=""></td>
-                    </tr>
+             <div class="lnameInput">
+              <input type="text" name="lname" value="">
+             </div>
 
-                </div>
+           </div>
 
-                <div class="pwd">
-                    <tr>
-                        <td><label for="Mot de passe">Nouveau mot de passe</label></td>
-                    </tr>
+           <div class="fname">
 
-                    <tr>
-                        <td><input type="password" placeholder="Votre mot de passe" id="password" name="password" value=""/></td>
-                    </tr>
+             <div class="fnameLab">
+              <label for="fname">Prénom</label>
+             </div>
 
-                    <tr>
-                        <td><label for="Confirmez votre mot de passe">Confirmez votre mot de passe</label></td>
-                    </tr>
+             <div class="fnameInput">
+              <input type="text" name="fname" value="">
+             </div>
 
-                    <tr>
-                        <td><input type="password" placeholder="Confirmez votre mot de passe" id="confirmpassword" name="confirmpassword" value=""></td>
-                    </tr>
-                </div>
+           </div>
 
-                <div class="contmail">
-                    <tr>
-                        <td><label for="E-mail">E-mail</label></td>
-                    </tr>
+           <div class="email">
 
-                    <tr>
-                        <td><input type="email" placeholder="Votre e-mail" id="email" name="email" value=""></td>
-                    </tr>
+             <div class="emailLab">
+              <label for="email">Email</label>
+             </div>
 
-                    <tr>
-                        <td><label for="E-mail">Confirmez l'e-mail</label></td>
-                    </tr>
+             <div class="emailInput">
+              <input type="text" name="email" value="">
+             </div>
 
-                    <tr>
-                        <td><input type="email" placeholder="Confirmez votre e-mail" id="email2" name="email2" value=""></td>
-                    </tr>
-                </div>
+           </div>
 
-                <div class="bconfirm">
-                    <tr>
-                        <td><button>Confirmer vos changements</button></td>
-                    </tr>
-                </div> 
-            </table>
-    </div>
+           <div class="confirmEmail">
 
-    <footer></footer>
-</body>
+             <div class="confirmEmailLab">
+              <label for="confirmemail">Confirmation de l'email</label>
+             </div>
+
+             <div class="confirmEmailInput">
+              <input type="text" name="confirmemail" value="">
+             </div>
+
+           </div>
+
+           <div class="password">
+
+             <div class="passwordLab">
+              <label for="password">Nouveau mot de passe</label>
+             </div>
+
+             <div class="passwordInput">
+              <input type="password" name="password" value="">
+             </div>
+
+           </div>
+
+           <div class="confirmPassword">
+
+             <div class="confirmPasswordLab">
+              <label for="confirmpassword">Confirmation du mot de passe</label>
+             </div>
+
+             <div class="confirmPasswordInput">
+              <input type="password" name="confirmpassword" value="">
+             </div>
+
+           </div>
+
+           <div class="submit">
+             <button type="button" name="submitButton" value="Confirmer">Confirmer</button>
+           </div>
+
+           <div class="cancel">
+             <button type="reset" name="resetButton" value="Annuler">Annuler</button>
+           </div>
+
+
+         </form>
+        </div>
+     </p>
+
+   </body>
+ </html>
