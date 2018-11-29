@@ -72,3 +72,8 @@ input {
 #helpLabel:hover .tooltiptext{
     display: inline;
 }
+
+.error_msg {
+    color: red;
+    font-size: 9px;
+}

@@ -1,7 +1,8 @@
 <?php
     session_start();
-    require("./traitements/caching.php");
-    setCache();
+    session_destroy();
+    //require("./traitements/caching.php");
+    //setCache();
 ?>
 
 <!DOCTYPE html>

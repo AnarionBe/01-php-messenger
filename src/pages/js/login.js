@@ -1,6 +1,11 @@
 document.addEventListener("DOMContentLoaded", function(e) {
     let email = password = firstname = lastname = false;
 
+    if(document.getElementById("signup").checked) {
+        document.getElementById("inscription").style = "display: block";
+        document.getElementById("button").value = "S'inscrire";
+    }
+    
     //affiche le formulaire adapté à la demande de l'utilisateur
     document.getElementById("signup").addEventListener("input", function(e) {
         if(document.getElementById("signup").checked) {
