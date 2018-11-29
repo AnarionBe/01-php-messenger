@@ -4,10 +4,8 @@ body {
     height: 100vh;
     font-family: 'Varela Round', sans-serif;
     position: relative;
-}
 
-.container {
-    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1)), url("./img/Lion-Background.jpg");
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1)), url("../img/Lion-Background.jpg");
     height: 100vh;
     background-size: cover;
     background-position: center;
@@ -15,4 +13,58 @@ body {
     align-items: center;
     display: flex;
     flex-direction: column;
+}
+
+
+.configProfile {
+    width: 600px;
+    border: 1px solid black;
+}
+
+.nom {
+    border: 1px solid brown;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.prenom {
+    border: 1px solid rgb(104, 165, 42);
+    display: flex;
+    justify-content: space-between;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.email {
+    border: 1px solid rgb(153, 165, 42);
+    display: flex;
+    justify-content: space-between;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.confirmEmail {
+    border: 1px solid rgb(250, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.password {
+    border: 1px solid rgb(56, 42, 165);
+    display: flex;
+    justify-content: space-between;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.confirmPassword {
+    border: 1px solid rgb(56, 42, 165);
+    display: flex;
+    justify-content: space-between;
+    padding-left: 25px;
+    padding-right: 25px;   
 }
