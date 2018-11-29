@@ -14,9 +14,13 @@ $answer = $add_message->query('SELECT message FROM messages ORDER BY id DESC LIM
 
 // Affichage de chaque message
 while ($donnees = $answer->fetch())
-{
-	echo '<p>'. htmlspecialchars($donnees['message']) . '</p>';
-}
+{ ?>
+    <form method="post" action="./traitements/traitementMessageCreate.php">
+        <textarea name="modification" type="text"><?php echo ($donnees['message']); ?></textarea>
+        <input type="submit" value="Modifier">
+        <input type="text" name="id" value=1>
+    </form>
+<?php }
 
 $answer->closeCursor();
 
@@ -43,5 +47,8 @@ $answer->closeCursor();
     <p>
 </body>
 </html>
+
+
+
 
 
