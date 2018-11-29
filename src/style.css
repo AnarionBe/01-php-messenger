@@ -69,5 +69,35 @@ p {
 .footer {
     display: flex;
     align-items: center;
-    position: absolute; bottom: 0;
+}
+
+#connected {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+#listConv {
+    background-color: rgba(0, 0, 0, 0.397);
+    height: 100%;
+    width: 20%;
+}
+
+#chatView {
+    background-color: red;
+    height: 100%;
+    width: 80%;
+}
+
+.conv_tile {
+    height: 30px;
+    color: red;
+}
+
+.conv_tile:hover {
+    background-color: rgba(0, 0, 0, 0.63);
+}
+
+.selected {
+    background-color: rgba(0, 0, 0, 0.63);
 }

@@ -1,8 +1,13 @@
 <?php
     session_start();
-    session_destroy();
+    require('./class/Conversation.php');
     //require("./traitements/caching.php");
     //setCache();
+    try {
+        $bdd = new PDO('mysql:host=mysql;dbname=messenger;charset=utf8', 'messenger', 'messenger');
+    } catch(Exception $e) {
+        die('Erreur : '.$e->getMessage());
+    }
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +23,7 @@
 
 <body>
     <div class="container">
+    <?php if($_SESSION == 0) {?>
         <!-- Carte de connexion -->
         <div class="carte" >
             <div class="carteImage">
@@ -27,15 +33,33 @@
             <div class="carteTexte">
                 <h4>Bienvenue sur le chat Meow!</h4>
                 <p>Parce que le(s) chat(s) c'est la vie.</p>
-                <?php if(sizeof($_SESSION) == 0) { ?>
                 <div class="bouton">
                     <a href="./pages/login.php" class="boutonSeConnecter">Se Meower</a>
                 </div>
-                <?php } else echo "connecté !"; ?>
             </div>
-                
         </div>
+    <?php } else {?>
+        <div id="connected">
+            <aside id="listConv">
+            <?php 
+                $result = $bdd->query("SELECT * FROM conversations");
+                while($tmp = $result->fetch()) {
+                    $conv = new Conversation($tmp['author'], $tmp['sujet']);
+            ?>
+                <div class="conv_tile">
+                    <span><?php echo $conv->getSujet();?></span>
+                </div>
+            <?php    
+                }
+            ?>
+            </aside>
 
+            <div id="chatView">
+
+            </div>
+        </div>
+        
+    <?php }?>
         <footer class = "footer">
             <?php include("footer.php");?>
         </footer>
