@@ -1,0 +1,36 @@
+
+#emoji_selection {
+    width: 50px;
+    height: 35px;
+    background-image: url("../img/cat_emojis.png");
+    background-repeat: no-repeat;
+    background-color: white;
+}
+
+/* Le container du popup */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor:pointer; 
+}
+
+/* Le style du popup */
+.popup .popupContent {
+    visibility: hidden;
+    width: 125px;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: -1px 2px 5px 0px rgba(0,0,0,0.7);
+    position: absolute;
+    left: 40px;
+}
+
+.emojis {
+    margin: 3px
+}
+
+/* Rend le popup visible */
+.popup .show {
+    visibility: visible;
+}
+
