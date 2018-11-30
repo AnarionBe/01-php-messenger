@@ -62,15 +62,15 @@ $answer->closeCursor();
     <div class="popup" onclick="popupFunction()">
         <img src="../img/cat_emojis.png" alt="sélectionner un émojis"  title="Ajoutez une réaction"/>
         <span class="popupContent" id="myPopup">
-            <img class="emojis" src="../img/smilies/cat_smile.png" onclick="emojiFunction()" id="emoji1" />
-            <img class="emojis" src="../img/smilies/cat_laugh.png" onclick="emojiFunction()" />
-            <img class="emojis" src="../img/smilies/cat_lol.png" onclick="emojiFunction()" />
-            <img class="emojis" src="../img/smilies/cat_love.png" onclick="emojiFunction()" />
-            <img class="emojis" src="../img/smilies/cat_sad.png" onclick="emojiFunction()" />
-            <img class="emojis" src="../img/smilies/cat_surprised.png" onclick="emojiFunction()" />
-            <img class="emojis" src="../img/smilies/cat_kiss.png" onclick="emojiFunction()" />
-            <img class="emojis" src="../img/smilies/cat_angry.png" onclick="emojiFunction()" />
-            <img class="emojis" src="../img/smilies/cat_determined.png" onclick="emojiFunction()" />
+            <img class="emojis" src="../img/smilies/cat_smile.png" title=":)" id="emoji1"/>
+            <img class="emojis" src="../img/smilies/cat_laugh.png" title=":'D" id="emoji2"/>
+            <img class="emojis" src="../img/smilies/cat_lol.png" title=":D" id="emoji3"/>
+            <img class="emojis" src="../img/smilies/cat_love.png" title="<3" id="emoji4"/>
+            <img class="emojis" src="../img/smilies/cat_sad.png" title=":'(" id="emoji5"/>
+            <img class="emojis" src="../img/smilies/cat_surprised.png" title=":o" id="emoji6"/>
+            <img class="emojis" src="../img/smilies/cat_kiss.png" title=":*" id="emoji7"/>
+            <img class="emojis" src="../img/smilies/cat_angry.png" title=">:(" id="emoji8"/>
+            <img class="emojis" src="../img/smilies/cat_determined.png" title="8)" id="emoji9"/>
         </span>
     </div>
 
@@ -83,19 +83,9 @@ classList.toggle permet de connecter la fonction html au css -->
         }
     </script>
 
-<!-- Fonction qui permet d'afficher les emojis dans le texte lorsqu'ils sont sélectionnés -->
-    <script>
-        function emojiFunction() {
-            var emoji = document.getElementsByClassName("emojis");
-            var emojiInMessage = document.getElementById("message").innerHTML;
-            var image = document.images.emoji1;
 
-            
-            document.getElementById("message").innerHTML = image;
-            
-            
-        }
-    </script>
+<script src="chat-script.js">
+</script>
 
 </body>
 
