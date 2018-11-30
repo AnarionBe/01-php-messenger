@@ -9,7 +9,7 @@
         die('Erreur : '.$e->getMessage());
     };
 
-    //Création d'une nouvelle conversation définie par à l'input de 'title' et la clé de l'utilisateur.
+    //Création d'une nouvelle conversation définie par l'input de 'title' et la clé de l'utilisateur.
     $conversation = new Conversation($_SESSION['email'],$_POST['title']);
 
     
