@@ -9,24 +9,24 @@ catch (Exception $e)
         die('Erreur : ' . $e->getMessage());
 }
 
-        // Modification des messages
+        // Modifying msgs
 if ($_POST['modification']){
         $newMessage = $_POST['modification'];
         $ID = $_POST['id'];
         $req = $add_message -> prepare("UPDATE messages SET message = '$newMessage' WHERE id = $ID");
         $req->execute();
-        $_POST['modification'] = ""; // Remet la variable modif à rien
+        $_POST['modification'] = ""; // Reboot variable 'modification'
 }
 elseif ($_POST['message']) {
-        // Insertion du message à l'aide d'une requête préparée OK
+        // Insert messages with 'prepare' and variables
         $date = date("Y-m-d H:i:s");
         $message = $_POST['message'];
         $req = $add_message->prepare("INSERT INTO messages VALUES(null, 'babar', 'babar', '$message', '$date');");
         $req->execute();
-        $_POST['message'] = ""; // Remet la variable message à rien
+        $_POST['message'] = ""; // Reboot variable 'message'
 }
 
-// Redirection du visiteur vers la page du minichat
+// Redirect users to 'simulationMessage' webpage
 header('Location: ../simulationMessage.php');
 exit();
 ?>

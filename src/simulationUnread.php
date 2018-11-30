@@ -9,10 +9,10 @@ catch (Exception $e)
         die('Erreur : ' . $e->getMessage());
 }
 
-// Retrieval of the last 10 msgs
+// Retrieval of the last 10 messages
 $answer = $add_message->query('SELECT message FROM messages ORDER BY id DESC LIMIT 0, 10');
 
-// display of every message + possibility to modify them
+// Display of every message + possibility to modify them in a form
 while ($donnees = $answer->fetch())
 { ?>
     <form method="post" action="./traitements/traitementMessageCreate.php">
@@ -26,7 +26,6 @@ $answer->closeCursor();
 
 ?>
  
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,8 +46,3 @@ $answer->closeCursor();
     <p>
 </body>
 </html>
-
-
-
-
-
