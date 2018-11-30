@@ -16,7 +16,7 @@
                 echo("Les mots de passes ne correspondent pas.");
             }else{
                 $email = $_SESSION['email']->id;
-                $password = setPassword($value);
+                $password->setPassword($value);
                 $pdo->prepare('UPDATE users SET password = ? WHERE email = ?')->execute([$password, $email]);
                 echo("Votre mot de passe à bien été mis à jour.");
             }
@@ -29,7 +29,7 @@
 
     //MDP
 
-   /* if (!empty($_POST)){
+    if (!empty($_POST)){
         if(!empty($_POST['password']) || $_POST['password'] != $_POST['confirmPassword']){
             echo("Les mots de passes ne correspondent pas");
         }else{
@@ -69,4 +69,4 @@
             $pdo->prepare('UPDATE users SET email = ? WHERE email = ?')->execute([$email, $email]);
             echo("Votre email à bien été mis à jour.");
         }
-    } */
+    }
