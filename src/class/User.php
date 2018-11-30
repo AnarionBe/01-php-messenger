@@ -24,6 +24,10 @@
             return $this->firstName;
         }
 
+        public function getPassword() {
+            return $this->password;
+        }
+
         public function setEmail($email) {
             $this->email = $email;
         }

@@ -1,7 +1,8 @@
 <?php
+    require(dirname(__DIR__) . '/class/User.php');
     session_start();
 
-    require(dirname(__DIR__) . '/class/User.php');
+    
 
     try {
         $bdd = new PDO('mysql:host=mysql;dbname=messenger;charset=utf8', 'messenger', 'messenger');
@@ -9,15 +10,17 @@
         die('Erreur : '.$e->getMessage());
     }
 
+    $user = $_SESSION['user'];
+
     if(isset($_POST["send-profile"])){
         // Changement de MDP
         if (!empty($_POST)){
-            if(!empty($_POST['password']) || $_POST['password'] != $_POST['confirmPassword']){
+            if(empty($_POST['password']) || $_POST['password'] != $_POST['confirmPassword']){
                 echo("Les mots de passes ne correspondent pas.");
             }else{
-                $email = $_SESSION['email']->id;
-                $password->setPassword($value);
-                $pdo->prepare('UPDATE users SET password = ? WHERE email = ?')->execute([$password, $email]);
+                //$email = $_SESSION['email']->id;
+                $user->setPassword("test");
+                $bdd->prepare('UPDATE users SET password = ? WHERE email = ?')->execute([$user->getPassword(), $user->getEmail()]);
                 echo("Votre mot de passe à bien été mis à jour.");
             }
         }
@@ -29,13 +32,13 @@
 
     //MDP
 
-    if (!empty($_POST)){
+    /*if (!empty($_POST)){
         if(!empty($_POST['password']) || $_POST['password'] != $_POST['confirmPassword']){
             echo("Les mots de passes ne correspondent pas");
         }else{
             $email = $_SESSION['email']->id;
             $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-            $pdo->prepare('UPDATE users SET password = ? WHERE email = ?')->execute([$password, $email]);
+            $bdd->prepare('UPDATE users SET password = ? WHERE email = ?')->execute([$password, $email]);
             echo("Votre mot de passe à bien été mis à jour.");
         }
     }
@@ -69,4 +72,4 @@
             $pdo->prepare('UPDATE users SET email = ? WHERE email = ?')->execute([$email, $email]);
             echo("Votre email à bien été mis à jour.");
         }
-    }
+    }*/
