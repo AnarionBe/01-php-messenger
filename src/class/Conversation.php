@@ -25,6 +25,10 @@
             $this->author = $author;
         }
 
+        public function getId() {
+            return $this->author.$this->sujet;
+        }
+
         //Fonction qui permet d'ajouter toutes les informations de la conversation dans la base de données.
         public function add($bdd) {
             $tmp= $this->author.$this->sujet;

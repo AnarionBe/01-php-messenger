@@ -1,6 +1,11 @@
 <?php
-    session_start();
     require('./class/Conversation.php');
+    require('./class/User.php');
+    session_start();
+    
+    $activeUser = $_SESSION['user'];
+    //var_dump($_SESSION['user']);
+    //session_destroy();
     //require("./traitements/caching.php");
     //setCache();
     try {
@@ -23,7 +28,7 @@
 
 <body>
     <div class="container">
-    <?php if($_SESSION == 0) {?>
+    <?php if(sizeof($_SESSION) == 0) {?>
         <!-- Carte de connexion -->
         <div class="carte" >
             <div class="carteImage">
@@ -41,15 +46,20 @@
     <?php } else {?>
         <div id="connected">
             <aside id="listConv">
-            <?php 
+                <div id="profile">
+                
+                </div>
+            <?php
                 $result = $bdd->query("SELECT * FROM conversations");
                 while($tmp = $result->fetch()) {
                     $conv = new Conversation($tmp['author'], $tmp['sujet']);
+                    if($activeUser->participateTo($bdd, $conv)) {
             ?>
                 <div class="conv_tile">
-                    <span><?php echo $conv->getSujet();?></span>
+                    <span class="conv_name"><?php echo $conv->getSujet();?></span>
                 </div>
-            <?php    
+            <?php
+                    }
                 }
             ?>
             </aside>

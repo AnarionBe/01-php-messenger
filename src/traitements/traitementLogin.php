@@ -16,9 +16,10 @@
     if(!isset($_POST['signup'])) { //cas de login
         if($user->load($bdd)) {
             if($user->checkPassword($_POST['password'])) {
-                $_SESSION['email'] = $user->getEmail();
+                /*$_SESSION['email'] = $user->getEmail();
                 $_SESSION['nom'] = $user->getLastName();
-                $_SESSION['prenom'] = $user->getFirstName();
+                $_SESSION['prenom'] = $user->getFirstName();*/
+                $_SESSION['user'] = $user;
                 header('Location: ../index.php');
                 exit();
             } else {
@@ -42,9 +43,10 @@
             $user->setLastName($_POST['lastname']);
             $user->setFirstName($_POST['firstname']);
             $user->add($bdd);
-            $_SESSION['email'] = $user->getEmail();
+            /*$_SESSION['email'] = $user->getEmail();
             $_SESSION['nom'] = $user->getLastName();
-            $_SESSION['prenom'] = $user->getFirstName();
+            $_SESSION['prenom'] = $user->getFirstName();*/
+            $_SESSION['user'] = $user;
             header('Location: ../index.php');
             exit();
         }
