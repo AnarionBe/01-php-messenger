@@ -61,7 +61,8 @@
 
         public function participateTo($bdd, $conv) {
             $idConv = $conv->getId();
-            $result = $bdd->query("SELECT * FROM conversationParticipation WHERE idConversation = '$idConv'");
+            $user = $this->email;
+            $result = $bdd->query("SELECT * FROM conversationParticipation WHERE idConversation = '$idConv' AND user='$user'");
             return $result->fetch();
         }
     }

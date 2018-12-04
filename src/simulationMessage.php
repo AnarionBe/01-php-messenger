@@ -1,0 +1,54 @@
+<?php
+
+try
+{
+	$add_message = new PDO('mysql:host=mysql;dbname=messenger;charset=utf8', 'messenger', 'messenger');
+}
+catch (Exception $e)
+{
+        die('Erreur : ' . $e->getMessage());
+}
+
+// Retrieval of the last 10 msgs
+$answer = $add_message->query('SELECT message FROM messages ORDER BY id DESC LIMIT 0, 10');
+
+// display of every message + possibility to modify them
+while ($donnees = $answer->fetch())
+{ ?>
+    <form method="post" action="./traitements/traitementMessageCreate.php">
+        <textarea name="modification" type="text"><?php echo ($donnees['message']); ?></textarea>
+        <input type="submit" value="Modifier">
+        <input type="text" name="id" value=1>
+    </form>
+<?php }
+
+$answer->closeCursor();
+
+?>
+ 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>add messages</title>
+</head>
+<body>
+
+    <p>
+        <form method="post" action="./traitements/traitementMessageCreate.php">
+            <textarea name = "message">
+            Votre message ici
+            </textarea>
+            <input type="submit" value="Envoyer mon message" />
+        </form>
+    <p>
+</body>
+</html>
+
+
+
+
+
