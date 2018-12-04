@@ -38,10 +38,10 @@
             header('Location: ../pages/login.php');
             exit();
         } else {
-            $user->setPassword(htmlentities($_POST['password']));
-            $user->setEmail(htmlentities($_POST['email']));
-            $user->setLastName(htmlentities($_POST['lastname']));
-            $user->setFirstName(htmlentities($_POST['firstname']));
+            $user->setPassword($_POST['password']);
+            $user->setEmail($_POST['email']);
+            $user->setLastName($_POST['lastname']);
+            $user->setFirstName($_POST['firstname']);
             $user->add($bdd);
             /*$_SESSION['email'] = $user->getEmail();
             $_SESSION['nom'] = $user->getLastName();

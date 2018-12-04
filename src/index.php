@@ -1,7 +1,18 @@
 <?php
+    require('./class/Conversation.php');
+    require('./class/User.php');
     session_start();
-    require("./traitements/caching.php");
-    setCache();
+    
+    $activeUser = $_SESSION['user'];
+    //var_dump($_SESSION['user']);
+    //session_destroy();
+    //require("./traitements/caching.php");
+    //setCache();
+    try {
+        $bdd = new PDO('mysql:host=mysql;dbname=messenger;charset=utf8', 'messenger', 'messenger');
+    } catch(Exception $e) {
+        die('Erreur : '.$e->getMessage());
+    }
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +28,7 @@
 
 <body>
     <div class="container">
+    <?php if(sizeof($_SESSION) == 0) {?>
         <!-- Carte de connexion -->
         <div class="carte" >
             <div class="carteImage">
@@ -26,15 +38,38 @@
             <div class="carteTexte">
                 <h4>Bienvenue sur le chat Meow!</h4>
                 <p>Parce que le(s) chat(s) c'est la vie.</p>
-                <?php if(sizeof($_SESSION) == 0) { ?>
                 <div class="bouton">
                     <a href="./pages/login.php" class="boutonSeConnecter">Se Meower</a>
                 </div>
-                <?php } else echo "connecté !"; ?>
             </div>
-                
         </div>
+    <?php } else {?>
+        <div id="connected">
+            <aside id="listConv">
+                <div id="profile">
+                
+                </div>
+            <?php
+                $result = $bdd->query("SELECT * FROM conversations");
+                while($tmp = $result->fetch()) {
+                    $conv = new Conversation($tmp['author'], $tmp['sujet']);
+                    if($activeUser->participateTo($bdd, $conv)) {
+            ?>
+                <div class="conv_tile">
+                    <span class="conv_name"><?php echo $conv->getSujet();?></span>
+                </div>
+            <?php
+                    }
+                }
+            ?>
+            </aside>
 
+            <div id="chatView">
+
+            </div>
+        </div>
+        
+    <?php }?>
         <footer class = "footer">
             <?php include("footer.php");?>
         </footer>

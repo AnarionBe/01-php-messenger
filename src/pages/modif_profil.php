@@ -62,12 +62,12 @@ function getField($user, $datas, $field) {
         $bdd->prepare('UPDATE users SET firstName = ? WHERE email = ?')->execute([$firstName, $user->getEmail()]);
       }
 
-      if (empty($errors)){
+      if (empty($errors)){ // Changement d'email
         $email = $_POST['email'];
         $bdd->prepare('UPDATE users SET email = ? WHERE email = ?')->execute([$email, $user->getEmail()]);
       }
 
-      if (empty($errors)){
+      if (empty($errors)){ // Changement de password
         $password = $_POST['password'] && $_POST['confirmPassword'];
         $bdd->prepare('UPDATE users SET password = ? WHERE email = ?')->execute([$password, $user->getEmail()]);
       }

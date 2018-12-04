@@ -63,9 +63,12 @@
             else return false;
         }
 
-        public function toJson() {
-            $data = array();
-            array_push($data, $this->email, $this->firstName, $this->lastName);
-            return $data;
+        public function participateTo($bdd, $conv) {
+            $idConv = $conv->getId();
+            $result = $bdd->query("SELECT * FROM conversationParticipation");
+            if($result) $tmp = $result->fetch();
+            else return false;
+            if($tmp['idConversation'] == $idConv && $tmp['user'] = $this->email) return true;
+            else return false;
         }
     }
