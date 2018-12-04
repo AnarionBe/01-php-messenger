@@ -89,13 +89,14 @@
                 </form>
             </div>
         </div>
-        
-    <?php }?>
-        <footer class = "footer">
-            <?php if(sizeof($_SESSION) == 0) {
-                include("footer.php");
-            }?>
-        </footer>
     </div>
+    <?php }?>
+    <footer class = "footer">
+        <?php if(sizeof($_SESSION) == 0) {
+            include("footer.php");
+        }?>
+        <script src="./js/home.js"></script>
+    </footer>
+    
 </body>
 </html>
