@@ -95,7 +95,12 @@ p {
 }
 
 .conv_name {
+    display: block;
     padding-left: 60px;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: white;
 }
 
 .conv_tile:hover {

@@ -56,10 +56,10 @@
                     if($activeUser->participateTo($bdd, $conv)) {
             ?>
                 <div class="conv_tile">
-                    <span class="conv_name"><?php echo $conv->getSujet();?></span>
+                    <a class="conv_name" href="index.php?conv=<?php echo $conv->getSujet();?>"><?php echo $conv->getSujet();?></a>
                 </div>
             <?php
-                    }
+                    };
                 }
             ?>
             </aside>
