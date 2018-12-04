@@ -71,14 +71,17 @@
                 <?php
                     $conv = $_GET['conv'];
                     $answer = $bdd->query("SELECT * FROM messages WHERE conversation = '$conv' ORDER BY id");
+                    $i = 0;
                     while($data = $answer->fetch()) {
                 ?>
-                    <div class="msg">
+                    <div class="msg <?php if($i % 2 == 0) echo "alternate"?>">
                         <span class="msgTime">(<?php echo $data['hour'];?>) </span>
                         <span class="msgAuthor"><?php echo $data['author'];?> : </span>
                         <span class="msgContent"><?php echo $data['message'];?></span>
                     </div>
-                <?php }?>
+                <?php 
+                    $i++;
+                }?>
                 </div>
 
                 <!-- formulare envoi de message -->
