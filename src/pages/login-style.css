@@ -22,3 +22,58 @@ body {
     align-items: center;
     position: absolute; bottom: 0;
 }
+
+#inscription {
+    display: none;
+}
+
+form {
+    background-color: rgba(255,255,255,0.5);
+    padding: 50px;
+    border-radius: 20px;
+    
+}
+
+input {
+    margin: 2px;
+    border: 2px solid #292929;
+    border-radius: 5px;
+    background-color: #292929;
+}
+
+.error {
+    border-color: red;
+}
+
+.correct {
+    border-color: green;
+}
+
+#helpLabel:hover {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltiptext {
+    position: absolute;
+    width: 200px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.295);
+    border: 0px;
+    font-size: 12px;
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    display: none;
+}
+
+#helpLabel:hover .tooltiptext{
+    display: inline;
+}
+
+.error_msg {
+    color: red;
+    font-size: 9px;
+}

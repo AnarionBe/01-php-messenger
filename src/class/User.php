@@ -24,6 +24,10 @@
             return $this->firstName;
         }
 
+        public function getPassword() {
+            return $this->password;
+        }
+
         public function setEmail($email) {
             $this->email = $email;
         }
@@ -59,11 +63,12 @@
             else return false;
         }
 
-        public function toJson() {
-            $data = array();
-            $data[] = $this->firstName;
-            var_dump($this->firstName);
-            array_push($data, $this->firstName);
-            return $data;
+        public function participateTo($bdd, $conv) {
+            $idConv = $conv->getId();
+            $result = $bdd->query("SELECT * FROM conversationParticipation");
+            if($result) $tmp = $result->fetch();
+            else return false;
+            if($tmp['idConversation'] == $idConv && $tmp['user'] = $this->email) return true;
+            else return false;
         }
     }

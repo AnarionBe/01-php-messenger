@@ -3,6 +3,7 @@
     require('../class/Conversation.php');
 
     // Connexion à la base de données
+
     try {
         $bdd = new PDO('mysql:host=mysql;dbname=messenger;charset=utf8', 'messenger', 'messenger');
     } catch(Exception $e) {
@@ -30,3 +31,4 @@
    
 
 ?>
+
