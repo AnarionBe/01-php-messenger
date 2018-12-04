@@ -18,16 +18,23 @@ if ($_POST['modification']){
         $_POST['modification'] = ""; // Remet la variable modif à rien
 }
 elseif ($_POST['message']) {
+        
+        // Transformation des unicodes en emojis
+        $textcode = array(':)', ':\'D', ':D', '<3', ':\'(', ':o', ':*', '>:(', '--');
+        $images = array('😺','😹','😸','😻','😿','🙀','😽','😾','😼');
+        echo str_replace($textcode, $images, $_POST['message']);
+        
         // Insertion du message à l'aide d'une requête préparée OK
         $date = date("Y-m-d H:i:s");
         $message = $_POST['message'];
         $req = $add_message->prepare("INSERT INTO messages VALUES(null, 'babar', 'babar', '$message', '$date');");
         $req->execute();
+
         $_POST['message'] = ""; // Remet la variable message à rien
 }
 
 // Redirection du visiteur vers la page du minichat
-header('Location: ../simulationMessage.php');
+header('Location: ../pages/chat.php');
 exit();
 ?>
 
