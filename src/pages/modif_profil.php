@@ -80,17 +80,17 @@ function getField($user, $datas, $field) {
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="styleprofil.css" />
+    <link rel="stylesheet" type="text/css" href="modifProfil.css" />
     <title>Meowser - Modifier le profil</title>
   </head>
   <body>
 
      <h1>Meowser</h1> <!--- ajout prénom a l'affichage --->
-     <h2>Bienvenue, <?php echo $_SESSION['user']->getFirstName() ?></h2>
+     <h2>Modifier votre profil <?php echo $_SESSION['user']->getFirstName() ?></h2>
 
      <p>
        <div class="configProfile">
-          <form action="../pages/profil.php" method="post" class="profileModif">
+          <form action="../pages/modif_profil.php" method="post" class="profileModif">
 
             <div class="nom">
 
@@ -185,7 +185,7 @@ function getField($user, $datas, $field) {
 
             <div class="buttons">
               <div class="submit">
-                <input type="submit" value="Confirmer">
+                <button type="submit" value="Confirmer">Confirmer</button>
               </div>
 
               <div class="cancel">

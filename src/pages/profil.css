@@ -1,0 +1,181 @@
+@font-face {
+    font-family: 'barlow';
+    src: url('BarlowCondensed-Regular-webfont.eot');
+    src: url('BarlowCondensed-Regular-webfont.woff2') format('woff2'),
+         url('BarlowCondensed-Regular-webfont.woff') format('woff'),
+         url('BarlowCondensed-Regular-webfont.ttf') format('truetype'),
+         url('BarlowCondensed-Regular-webfont.svg#barlow_condensedregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    position: relative;
+
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1)), url("../img/Lion-Background.jpg");
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.titleProfile {
+    position: absolute;
+    width: 500px;
+    height: 54px;
+    left: 422px;
+    top: 304px;
+
+    font-family: 'barlow';
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 36px;
+    text-align: center;
+
+    color: rgba(0, 0, 0, 0.5);
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.photo {
+    width: 150px;
+    height: 150px;
+    border: 2px solid grey;
+    border-radius: 100px;
+    background-color: lightgrey;
+    align-items: center;
+}
+
+.emptyCat {
+    padding: 10%;
+    padding-top: 25%;
+    width: 80%;
+}
+
+
+
+
+/*
+Rectangle 
+
+position: absolute;
+width: 150px;
+height: 150px;
+left: 822px;
+top: 358px;
+
+background: #45AEDB;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 75px;
+
+
+Rectangle 
+
+position: absolute;
+width: 589px;
+height: 249px;
+left: 422px;
+top: 348px;
+
+background: rgba(196, 196, 196, 0.63);
+border-radius: 26px;
+
+
+NOM : PRENOM : EMAIL :
+
+position: absolute;
+width: 100px;
+height: 120px;
+left: 435px;
+top: 393px;
+
+font-family: Aldrich;
+font-style: normal;
+font-weight: normal;
+line-height: normal;
+font-size: 16px;
+text-align: right;
+
+color: #000000;
+
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+
+Dominique Bosman Dominiquebosman02@gmail.com
+
+position: absolute;
+width: 307px;
+height: 120px;
+left: 549px;
+top: 393px;
+
+font-family: Aldrich;
+font-style: normal;
+font-weight: normal;
+line-height: normal;
+font-size: 16px;
+
+color: #000000;
+
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+
+PROFIL MEOWSER
+
+position: absolute;
+width: 366px;
+height: 54px;
+left: 422px;
+top: 304px;
+
+font-family: Aldrich;
+font-style: normal;
+font-weight: normal;
+line-height: normal;
+font-size: 36px;
+text-align: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+
+Rectangle 2 
+
+position: absolute;
+width: 170px;
+height: 30px;
+left: 631px;
+top: 535px;
+
+background: #95BCCD;
+border-radius: 10px;
+
+
+Modifier votre profil
+
+position: absolute;
+width: 160px;
+height: 33px;
+left: 636px;
+top: 534px;
+
+font-family: Aldrich;
+font-style: normal;
+font-weight: normal;
+line-height: normal;
+font-size: 14px;
+text-align: center;
+
+color: #000000;
+
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
