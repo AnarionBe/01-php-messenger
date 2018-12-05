@@ -6,7 +6,7 @@
 $user = new User($email);
 ```
 
-$email -> contient l'adresse email du User;
+`$email` -> contient l'adresse email du User;
 
 ---
 
@@ -38,4 +38,6 @@ $email -> contient l'adresse email du User;
 
 `add($pdo)` -> Add the user into the given PDO object. This method generate the sql query by itself.
 
-`checkPassword($password)` -> Apply `password_verify` on `$password` and the user hashed password. Return true if there is a match or false if not.
+`checkPassword($password)` -> Apply `password_verify()` on `$password` and the user hashed password. Return true if there is a match or false if not.
+
+`participateTo($bdd, $conv)` -> Check if the user participate to the given conversation (`$conv`) object. `$bdd` is the PDO linked to the database.
