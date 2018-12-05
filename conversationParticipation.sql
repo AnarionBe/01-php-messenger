@@ -2,10 +2,10 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Hôte : mysql
--- Généré le :  ven. 23 nov. 2018 à 09:04
--- Version du serveur :  5.7.24
--- Version de PHP :  7.2.8
+-- Host: mysql
+-- Generation Time: Nov 30, 2018 at 08:44 AM
+-- Server version: 5.7.24
+-- PHP Version: 7.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,31 +19,30 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `messenger`
+-- Database: `messenger`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users`
+-- Table structure for table `conversationParticipation`
 --
 
-CREATE TABLE `users` (
-  `email` varchar(255) COLLATE utf8_bin NOT NULL,
-  `password_hash` varchar(255) COLLATE utf8_bin NOT NULL,
-  `firstname` varchar(255) COLLATE utf8_bin NOT NULL,
-  `lastname` varchar(255) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+CREATE TABLE `conversationParticipation` (
+  `idConversation` varchar(255) NOT NULL,
+  `user` varchar(255) NOT NULL,
+  `lastLogin` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `users`
+-- Indexes for table `conversationParticipation`
 --
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`email`);
+ALTER TABLE `conversationParticipation`
+  ADD PRIMARY KEY (`idConversation`,`user`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
