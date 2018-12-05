@@ -59,11 +59,9 @@
             else return false;
         }
 
-        public function toJson() {
-            $data = array();
-            $data[] = $this->firstName;
-            var_dump($this->firstName);
-            array_push($data, $this->firstName);
-            return $data;
+        public function participateTo($bdd, $conv) {
+            $idConv = $conv->getId();
+            $result = $bdd->query("SELECT * FROM conversationParticipation WHERE idConversation = '$idConv'");
+            return $result->fetch();
         }
     }
