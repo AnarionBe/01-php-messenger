@@ -78,24 +78,31 @@ p {
 }
 
 #listConv {
-    background-color: rgba(0, 0, 0, 0.397);
+    background-color: rgba(0, 0, 0, 0.562);
     height: 100%;
     width: 20%;
 }
 
 #chatView {
-    background-color: red;
+    background-color: rgba(0, 0, 0, 0.178);
     height: 100%;
     width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
 }
 
 .conv_tile {
     height: 50px;
-    color: red;
 }
 
 .conv_name {
+    display: block;
     padding-left: 60px;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: white;
 }
 
 .conv_tile:hover {
@@ -109,4 +116,47 @@ p {
 #profile {
     height: 75px;
     background-color: blue;
+}
+
+.sendChat {
+    margin: 10px;
+    display: flex;
+}
+
+.sendChat .msgToSend {
+    resize: none;
+    width: 90%;
+}
+
+.sendChat .submit {
+    width: 10%;
+}
+
+.hide {
+    display: none;
+}
+
+#msgList {
+    margin: 10px;
+    overflow-y: scroll; 
+}
+
+.msg {
+    color: white;
+}
+
+.msgAuthor {
+    text-align: left;
+}
+
+.msgContent {
+    text-align: center;
+}
+
+.msgTime {
+    font-size: 9px;
+}
+
+.alternate {
+    background-color: rgba(248, 0, 0, 0.473);
 }

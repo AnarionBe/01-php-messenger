@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql
--- Generation Time: Nov 29, 2018 at 03:37 PM
+-- Generation Time: Dec 04, 2018 at 01:07 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.8
 
@@ -41,7 +41,9 @@ CREATE TABLE `messages` (
 --
 
 INSERT INTO `messages` (`id`, `author`, `conversation`, `message`, `hour`) VALUES
-(22, 'babar', 'babar', 'fdghklglghyljgk\r\n            ', '2018-11-29 13:31:04');
+(22, 'babar', 'babar', 'fdghklglghyljgk\r\n            ', '2018-11-29 13:31:04'),
+(23, 'babar', 'babar', 'fdghklglghyljgkgfgf\r\n            ', '2018-11-30 13:25:29'),
+(24, 'babar', 'babar', '            Votre message ici\r\n            ', '2018-11-30 13:28:19');
 
 --
 -- Indexes for dumped tables
@@ -61,7 +63,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

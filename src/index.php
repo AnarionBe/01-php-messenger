@@ -1,4 +1,5 @@
 <?php
+    //document.getElementById("msgList").scrollTop = 100000000; -> js
     require('./class/Conversation.php');
     require('./class/User.php');
     session_start();
@@ -56,7 +57,7 @@
                     if($activeUser->participateTo($bdd, $conv)) {
             ?>
                 <div class="conv_tile">
-                    <span class="conv_name"><?php echo $conv->getSujet();?></span>
+                    <a class="conv_name" href="index.php?conv=<?php echo $conv->getSujet();?>"><?php echo $conv->getSujet();?></a>
                 </div>
             <?php
                     }
@@ -65,14 +66,40 @@
             </aside>
 
             <div id="chatView">
+                <!-- liste des messages -->
+                <div id="msgList">
+                <?php
+                    $conv = $_GET['conv'];
+                    $answer = $bdd->query("SELECT * FROM messages WHERE conversation = '$conv' ORDER BY id");
+                    $i = 0;
+                    while($data = $answer->fetch()) {
+                ?>
+                    <div class="msg <?php if($i % 2 == 0) echo "alternate"?>">
+                        <span class="msgTime">(<?php echo $data['hour'];?>) </span>
+                        <span class="msgAuthor"><?php echo $data['author'];?> : </span>
+                        <span class="msgContent"><?php echo $data['message'];?></span>
+                    </div>
+                <?php 
+                    $i++;
+                }?>
+                </div>
 
+                <!-- formulare envoi de message -->
+                <form action="./traitements/traitementMessageCreate.php" class="sendChat" method="post">
+                    <textarea type="text" name="message" placeholder="Message à <?php echo $_GET['conv'];?>" class="msgToSend"></textarea>
+                    <input type="text" value="<?php echo $_GET['conv'];?>" name="conv" class="hide">
+                    <input type="submit" value="Meow" class="submit"/>
+                </form>
             </div>
         </div>
-        
-    <?php }?>
-        <footer class = "footer">
-            <?php include("footer.php");?>
-        </footer>
     </div>
+    <?php }?>
+    <footer class = "footer">
+        <?php if(sizeof($_SESSION) == 0) {
+            include("footer.php");
+        }?>
+        <script src="./js/home.js"></script>
+    </footer>
+    
 </body>
 </html>

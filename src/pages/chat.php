@@ -43,6 +43,12 @@ while ($donnees = $answer->fetch())
         <input type="submit" value="Modifier">
         <input type="text" name="id" value=1>
     </form>
+    <form method="post" action="../traitements/insertReaction.php"> 
+        <p class="emoji-picker-container">
+            <input name="react" type="text" data-emojiable="true">
+        </p>
+        <input type="submit" value="Modifier">
+    </form>
 <?php }
 
 $answer->closeCursor();
