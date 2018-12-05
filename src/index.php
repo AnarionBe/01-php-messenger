@@ -47,18 +47,18 @@
                 <div id="profile">
                 
                 </div>
-                <form method="post" action="./createConv.php" id="createConvForm">
-                    <input type="text" name="name" id="newConvName">
+                <form method="post" action="./traitements/createConv.php" id="createConvForm">
+                    <input type="text" name="title" id="newConvName">
                     <input type="submit" id="submitName">
                 </form>
             <?php
                 $result = $bdd->query("SELECT * FROM conversations");
                 while($tmp = $result->fetch()) {
-                    $conv = new Conversation($tmp['author'], $tmp['sujet']);
+                    $conv = new Conversation($tmp['author'], $tmp['subject']);
                     if($activeUser->participateTo($bdd, $conv)) {
             ?>
                 <div class="conv_tile">
-                    <a class="conv_name" href="index.php?conv=<?php echo $conv->getSujet();?>"><?php echo $conv->getSujet();?></a>
+                    <a class="conv_name" href="index.php?conv=<?php echo $conv->getSubject();?>"><?php echo $conv->getSubject();?></a>
                 </div>
             <?php
                     }
@@ -71,7 +71,7 @@
                 <div id="msgList">
                 <?php
                     $conv = $_GET['conv'];
-                    $answer = $bdd->query("SELECT * FROM messages WHERE conversation = '$conv' ORDER BY id");
+                    $answer = $bdd->query("SELECT * FROM messages WHERE conversation='$conv' ORDER BY id");
                     $i = 0;
                     while($data = $answer->fetch()) {
                 ?>

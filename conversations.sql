@@ -2,10 +2,10 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: mysql
--- Generation Time: Nov 29, 2018 at 02:49 PM
--- Server version: 5.7.24
--- PHP Version: 7.2.8
+-- Hôte : mysql
+-- Généré le :  mer. 05 déc. 2018 à 14:39
+-- Version du serveur :  5.7.24
+-- Version de PHP :  7.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,38 +19,36 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `messenger`
+-- Base de données :  `messenger`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `conversations`
+-- Structure de la table `conversations`
 --
 
 CREATE TABLE `conversations` (
-  `id_conversation` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `author` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `sujet` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL
+  `subject` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `author` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `conversations`
+-- Déchargement des données de la table `conversations`
 --
 
-INSERT INTO `conversations` (`id_conversation`, `author`, `sujet`) VALUES
-('', '', ''),
-('michael@gmail.compo', 'michael@gmail.com', 'po');
+INSERT INTO `conversations` (`subject`, `author`) VALUES
+('test', 'marcodb.debona@gmail.com');
 
 --
--- Indexes for dumped tables
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `conversations`
+-- Index pour la table `conversations`
 --
 ALTER TABLE `conversations`
-  ADD PRIMARY KEY (`id_conversation`);
+  ADD PRIMARY KEY (`subject`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
