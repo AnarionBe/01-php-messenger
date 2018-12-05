@@ -39,11 +39,13 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
             id.value = parent.getAttribute("data-id");
             id.setAttribute("name", "id");
+            id.style.display = "none";
 
             let url = new URL(document.URL);
             let conv_name = url.searchParams.get("conv");
             conv.value = conv_name;
             conv.setAttribute("name", "conv");
+            conv.style.display = "none";
 
             form.style.padding = "5px";
             form.style.display = "flex";
