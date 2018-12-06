@@ -38,6 +38,10 @@ function getField($user, $datas, $field) {
         $errors['profil_error_password'] = "Les mots de passe ne correspondent pas.";
       }
 
+      if(empty($_POST['pseudo'])){
+        $errors['profil_error_pseudo'] = "Ce champ est requis";
+      }
+
       if(empty($_POST['firstName'])){ 
         $errors['profil_error_firstName'] = "Ce champ est requis";
       }
@@ -50,10 +54,13 @@ function getField($user, $datas, $field) {
         $errors['profil_error_email'] = "Ce champ est requis";
       }
 
+      if (empty($errors)){ // Changement de pseudo
+        $pseudo = $_POST['pseudo'];
+        $bdd->prepare('UPDATE users SET pseudo = ? WHERE email = ?')->execute([$pseudo, $user->getEmail()]);
+      }
+
       if (empty($errors)) { // Changement de nom
-        // nettoyer les données (htmlentities)
         $lastName = $_POST['lastName'];
-        // enregistrer les données nettoyées
         $bdd->prepare('UPDATE users SET lastname = ? WHERE email = ?')->execute([$lastName, $user->getEmail()]);
       }
 
@@ -80,17 +87,35 @@ function getField($user, $datas, $field) {
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="styleprofil.css" />
+    <link rel="stylesheet" type="text/css" href="modifProfil.css" />
     <title>Meowser - Modifier le profil</title>
   </head>
   <body>
 
      <h1>Meowser</h1> <!--- ajout prénom a l'affichage --->
-     <h2>Bienvenue, <?php echo $_SESSION['user']->getFirstName() ?></h2>
+     <h2>Modifier votre profil <?php echo $_SESSION['user']->getPseudo() ?></h2>
 
      <p>
        <div class="configProfile">
-          <form action="../pages/profil.php" method="post" class="profileModif">
+          <form action="../pages/modif_profil.php" method="post" class="profileModif">
+
+            <div class="pseudo">
+
+              <div class="pseudoLab">
+                <label for="Pseudo">Pseudo :</label>
+              </div>
+
+              <div class="pseudoInput">
+                <input type="text" name="pseudo" value="<?php echo getField($user, $_POST, 'pseudo'); ?>">
+
+                <?php 
+                  if(array_key_exists('profil_error_pseudo', $errors)){
+                    echo '<p class="error">' . $errors['profil_error_pseudo'] . '</p>';
+                  }
+                ?>
+
+              </div>
+            </div>
 
             <div class="nom">
 
@@ -185,7 +210,7 @@ function getField($user, $datas, $field) {
 
             <div class="buttons">
               <div class="submit">
-                <input type="submit" value="Confirmer">
+                <button type="submit" value="Confirmer">Confirmer</button>
               </div>
 
               <div class="cancel">

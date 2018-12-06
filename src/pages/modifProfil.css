@@ -21,8 +21,13 @@ body {
     border: 1px solid black;
 }
 
+.pseudo {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 25px;
+    padding-right: 25px;
+}
 .nom {
-    border: 1px solid brown;
     display: flex;
     justify-content: space-between;
     padding-left: 25px;
@@ -30,7 +35,6 @@ body {
 }
 
 .prenom {
-    border: 1px solid rgb(104, 165, 42);
     display: flex;
     justify-content: space-between;
     padding-left: 25px;
@@ -38,7 +42,6 @@ body {
 }
 
 .email {
-    border: 1px solid rgb(153, 165, 42);
     display: flex;
     justify-content: space-between;
     padding-left: 25px;
@@ -46,7 +49,6 @@ body {
 }
 
 .confirmEmail {
-    border: 1px solid rgb(250, 0, 0);
     display: flex;
     justify-content: space-between;
     padding-left: 25px;
@@ -54,7 +56,6 @@ body {
 }
 
 .password {
-    border: 1px solid rgb(56, 42, 165);
     display: flex;
     justify-content: space-between;
     padding-left: 25px;
@@ -62,13 +63,40 @@ body {
 }
 
 .confirmPassword {
-    border: 1px solid rgb(56, 42, 165);
     display: flex;
     justify-content: space-between;
     padding-left: 25px;
     padding-right: 25px;   
 }
 
+input {
+    width: 250px;
+}
+
 .error {
     color: red;
+}
+
+/* ------------- Page de profil -------------  */
+
+.titleProfile {
+    width: 250px;
+    border: 1px solid white;
+    text-align: center;
+}
+
+.profileArea {
+    border: 1px solid #292929;
+    width: 500px;
+    height: 600px;
+    position: relative;
+    margin-bottom: 100px;
+}
+
+.photo {
+    width: 150px;
+    height: 150px;
+    border: 2px solid #292929;
+    border-radius: 100px;
+    margin-right: 400px;
 }
