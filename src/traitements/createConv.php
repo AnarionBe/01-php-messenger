@@ -20,7 +20,7 @@
             $conversation->setSubject($_POST['title']);
             $_SESSION['subject'] = $conversation->getSubject();
             $conversation->setAuthor($_SESSION['user']->getPseudo());
-            $conversation->add($bdd);
+            $conversation->add($bdd, $_SESSION['user']->getPseudo());
             header('Location: ../index.php');
             exit();
         } else echo 'Veuillez remplir le titre de la discussion!';
