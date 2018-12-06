@@ -1,12 +1,12 @@
 <?php
 
-   
+    /*
     
     if(isset($_POST["send-avatar"])){
         echo("prout");
     }
 
-    /*
+   
 
     // Changement du prenom
 

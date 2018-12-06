@@ -1,5 +1,4 @@
 <?php
-    require('./User.php');
     //Création de la classe conversation qui est définie par un auteur et un sujet de conversation.
     class Conversation {
         private $author;
