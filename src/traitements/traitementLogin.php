@@ -1,6 +1,6 @@
 <?php
-    session_start();
     require('../class/User.php');
+    session_start();
     $_SESSION['login_error'] = "";
     $_SESSION['signup_error'] = "";
 
