@@ -26,13 +26,13 @@
         }
 
         //Fonction qui permet d'ajouter toutes les informations de la conversation dans la base de données.
-        public function add($bdd) {
+        public function add($bdd, $user) {
+            $date = date("Y-m-d H:i:s");
             $bdd->query("INSERT INTO conversations VALUES('$this->subject', '$this->author')");
+            $bdd->query("INSERT INTO conversationParticipation VALUES('$this->subject', '$user', '$date')");
         }
 
-        public function addParticipant($user) {
-
+        public function addParticipant($bdd, $user) {
+            
         }
     }
-}
-
