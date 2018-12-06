@@ -79,7 +79,7 @@
                         <span class="msgTime">(<?php echo $data['hour'];?>) </span>
                         <span class="msgAuthor"><?php echo $data['author'];?> : </span>
                         <span class="msgContent"><?php echo $data['message'];?></span>
-                        <?php if($data['author'] == $_SESSION['user']->getEmail()) {?>
+                        <?php if($data['author'] == $_SESSION['user']->getPseudo()) {?>
                         <button class="msgEditButton">Modifier</button>
                         <?php }?>
                     </div>

@@ -20,7 +20,7 @@
                 //Insert messages with 'prepare' and variables
                 $date = date("Y-m-d H:i:s");
                 $conversation = $_POST['conv'];
-                $author = $_SESSION['user']->getEmail();
+                $author = $_SESSION['user']->getPseudo();
                 $message = $_POST['message'];
                 $req = $bdd->query("INSERT INTO messages VALUES(null, '$author', '$conversation', '$message', '$date');");
                 $_POST['message'] = ""; //Reboot variable 'message'
