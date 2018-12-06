@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    font-family: 'Varela Round', sans-serif;
+    font-family: 'Varela Round';
     position: relative
 }
 
@@ -124,8 +124,12 @@ p {
 
 #profile {
     height: 75px;
-    background-color: blue;
 }
+
+#profile a {
+    color: black;
+}
+
 .sendChat {
     margin: 10px;
     display: flex;
