@@ -3,7 +3,7 @@
         session_start();
         try
         {
-                $bdd = new PDO('mysql:host=mysql;dbname=messenger;charset=utf8', 'messenger', 'messenger');
+                $bdd = new PDO('mysql:host=mysql;dbname=messenger;charset=utf8mb4', 'messenger', 'messenger');
         }
         catch (Exception $e)
         {
@@ -20,7 +20,7 @@
                 //Insert messages with 'prepare' and variables
                 $date = date("Y-m-d H:i:s");
                 $conversation = $_POST['conv'];
-                $author = $_SESSION['user']->getEmail();
+                $author = $_SESSION['user']->getPseudo();
                 $message = $_POST['message'];
                 $req = $bdd->query("INSERT INTO messages VALUES(null, '$author', '$conversation', '$message', '$date');");
                 $_POST['message'] = ""; //Reboot variable 'message'
@@ -29,8 +29,3 @@
         header("Location: ../index.php?conv=".$_POST['conv']);
         exit();
 ?>
-
-
-
-
-

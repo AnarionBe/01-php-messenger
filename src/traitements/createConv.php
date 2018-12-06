@@ -17,14 +17,9 @@
     
         //Test pour voir si le champs 'title' a été bien rempli.
         if (!empty($_POST['title'])) {
-
-            //Créer le sujet de la conversation
-            $conversation-> setSubject($_POST['title']);
-            //Permet d'enregistrer le sujet de la nouvelle conversation dans les variables de session.
+            $conversation->setSubject($_POST['title']);
             $_SESSION['subject'] = $conversation->getSubject();
-            //Définir l'auteur de la nouvelle conversation.
-            $conversation-> setAuthor($_SESSION['user']->getEmail());
-            //Ajouter une nouvelle entrée à la base de données.
+            $conversation->setAuthor($_SESSION['user']->getPseudo());
             $conversation->add($bdd);
             header('Location: ../index.php');
             exit();
