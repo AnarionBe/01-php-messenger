@@ -49,7 +49,11 @@
         <div id="connected">
             <aside id="listConv">
                 <div id="profile">
-                
+                    <a href="./pages/profil.php"><?php echo $_SESSION['user']->getPseudo(); ?></a>
+                    <span><?php echo $_SESSION['user']->getEmail();?></span>
+                    <form>
+                        <button type="submit" formaction="./traitements/deconnection.php">Se déconnecter</button>
+                    </form>
                 </div>
                 <form method="post" action="./traitements/createConv.php" id="createConvForm">
                     <input type="text" name="title" id="newConvName">

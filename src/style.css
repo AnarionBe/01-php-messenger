@@ -124,8 +124,12 @@ p {
 
 #profile {
     height: 75px;
-    background-color: blue;
 }
+
+#profile a {
+    color: black;
+}
+
 .sendChat {
     margin: 10px;
     display: flex;
