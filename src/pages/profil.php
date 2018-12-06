@@ -51,12 +51,14 @@
     <div class="profileArea">
 
         <div class="profile">
+            <p>Pseudo :</p>
             <p>Nom :</p> 
             <p>Prénom :</p> 
             <p>Mail :</p> 
         </div>
 
         <div class="profileData">
+            <p><?php echo $_SESSION['user']->getPseudo(); ?></p>
             <p><?php echo $_SESSION['user']->getLastName(); ?></p>
             <p><?php echo $_SESSION['user']->getFirstName(); ?></p>
             <p><?php echo $_SESSION['user']->getEmail(); ?></p>

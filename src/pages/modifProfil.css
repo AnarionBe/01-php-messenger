@@ -21,6 +21,12 @@ body {
     border: 1px solid black;
 }
 
+.pseudo {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 25px;
+    padding-right: 25px;
+}
 .nom {
     display: flex;
     justify-content: space-between;

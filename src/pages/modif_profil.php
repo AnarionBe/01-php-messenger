@@ -38,6 +38,10 @@ function getField($user, $datas, $field) {
         $errors['profil_error_password'] = "Les mots de passe ne correspondent pas.";
       }
 
+      if(empty($_POST['pseudo'])){
+        $errors['profil_error_pseudo'] = "Ce champ est requis";
+      }
+
       if(empty($_POST['firstName'])){ 
         $errors['profil_error_firstName'] = "Ce champ est requis";
       }
@@ -55,6 +59,11 @@ function getField($user, $datas, $field) {
         $lastName = $_POST['lastName'];
         // enregistrer les données nettoyées
         $bdd->prepare('UPDATE users SET lastname = ? WHERE email = ?')->execute([$lastName, $user->getEmail()]);
+      }
+
+      if (empty($erros)){
+        $pseudo = $_POST['pseudo'];
+        $bdd->prepare('UPDATE users SET pseudo = ? WHERE email = ?')->execute([$pseudo, $user->getEmail()]);
       }
 
       if (empty($errors)){ // Changement de prénom
@@ -91,6 +100,24 @@ function getField($user, $datas, $field) {
      <p>
        <div class="configProfile">
           <form action="../pages/modif_profil.php" method="post" class="profileModif">
+
+            <div class="pseudo">
+
+              <div class="pseudoLab">
+                <label for="Pseudo">Pseudo :</label>
+              </div>
+
+              <div class="pseudoInput">
+                <input type="text" name="pseudo" value="<?php echo getField($user, $_POST, 'pseudo'); ?>">
+
+                <?php 
+                  if(array_key_exists('profil_error_pseudo', $errors)){
+                    echo '<p class="error">' . $errors['profil_error_pseudo'] . '</p>';
+                  }
+                ?>
+
+              </div>
+            </div>
 
             <div class="nom">
 
