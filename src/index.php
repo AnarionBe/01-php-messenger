@@ -92,7 +92,7 @@
                 }?>
                 </div>
 
-                <!-- formulare envoi de message -->
+                <!-- formulaire envoi de message -->
                 <form action="./traitements/traitementMessageCreate.php" class="sendChat" method="post" >
                     <p class="emoji-picker-container"> 
                         <textarea type="text" name="message" data-emojiable="true" placeholder="Message à <?php echo $_GET['conv'];?>" class="msgToSend"></textarea>
