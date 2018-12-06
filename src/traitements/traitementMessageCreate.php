@@ -3,7 +3,7 @@
         session_start();
         try
         {
-                $bdd = new PDO('mysql:host=mysql;dbname=messenger;charset=utf8', 'messenger', 'messenger');
+                $bdd = new PDO('mysql:host=mysql;dbname=messenger;charset=utf8mb4', 'messenger', 'messenger');
         }
         catch (Exception $e)
         {

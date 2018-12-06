@@ -32,7 +32,7 @@
         }
 
         public function addParticipant($user) {
-
+            
         }
     }
-?>
+}
