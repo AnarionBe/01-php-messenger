@@ -1,0 +1,13 @@
+** appuis sur le bouton modif **
+passage à l'interface de modification
+ajouter un input de confirmation de mdp
+ajouter un bouton annuler et confirmer
+
+** annulation des modifications **
+retour à l'interface d'origine
+
+** confirmation des changement **
+vérification de la validité des données
+requête de modification de la base de données
+mise à jour du cache
+retour à l'interface d'origine

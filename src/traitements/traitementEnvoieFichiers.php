@@ -11,6 +11,7 @@ move_uploaded_file($_FILES['file']['tmp_name'], $path);
     echo "Fichier envoyé";
 }
 // fucking database doesn't work! 
+// edit: fucking database finally works!
 $date = date("Y-m-d H:i:s");
 $req = $bdd->prepare("INSERT INTO messages VALUES(null, 'test', 'test', 'test', '$date', '$path');");
 $req->execute();

@@ -12,22 +12,27 @@ Pour les autres, on affiche "lus".
 
 $bdd = new PDO('mysql:host=mysql;dbname=messenger;charset=utf8', 'messenger', 'messenger');
 
-$lastLoginDate = "2018-02-16 7:45:23" //date and hour of the last login of each user
-$idconversation = "l.delduca@hotmail.comconversation" //id of each conversation that has been created
-$lastMessageDate = "2018-02-16 7:46:34" //date and hour of the last message posted
+$lastLoginDate = "2018-02-16 7:45:23";
+$idconversation = "l.delduca@hotmail.comconversation";
+$lastMessageDate = "2018-02-16 7:46:34";
 
 $result = $bdd -> query("SELECT * FROM conversations WHERE id_conversation='$idconversation'");
-$conversation = $result -> fetch();
+$conversation = $bdd -> fetch();
 
+$user = $_SESSION['user'];
 // loop: 
-    if($_SESSION['user'] -> participateTo ($bdd, $conversation)){
+    // Checks if current user participates in a conversation
+    if($user -> participateTo ($bdd, $conversation)){
+        //yes: retrieves the list of messages from a conversation stocked in the database
         $listmessages = $bdd -> query("SELECT * FROM messages WHERE conversation='$idconversation'");
-        while ()
-        if ($lastLoginDate >= $lastMessageDate){
-            echo "non lus"
-        }
-        elseif ($lastLoginDate < $lastMessageDate){
-            echo "lus"
+        // as long as there are messages left in the conversation...
+        for ($number = 0; $number < $listmessages; $number++){
+            if ($lastLoginDate >= $lastMessageDate){
+                echo "non lus";
+            }
+            elseif ($lastLoginDate < $lastMessageDate){
+                echo "lus";
+            }
         }
     }   
 

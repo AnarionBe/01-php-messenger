@@ -69,5 +69,102 @@ p {
 .footer {
     display: flex;
     align-items: center;
-    position: absolute; bottom: 0;
+}
+
+#connected {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+#listConv {
+    background-color: rgba(0, 0, 0, 0.562);
+    height: 100%;
+    width: 20%;
+    overflow-x: hidden;
+}
+
+#newConvName {
+    width: 70%;
+}
+
+#submitName {
+    width: 20%;
+}
+
+#chatView {
+    background-color: rgba(0, 0, 0, 0.178);
+    height: 100%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.conv_tile {
+    height: 50px;
+}
+
+.conv_name {
+    display: block;
+    padding-left: 60px;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: white;
+}
+
+.conv_tile:hover {
+    background-color: rgba(0, 0, 0, 0.281);
+}
+
+.selected {
+    background-color: rgba(0, 0, 0, 0.63);
+}
+
+#profile {
+    height: 75px;
+    background-color: blue;
+}
+.sendChat {
+    margin: 10px;
+    display: flex;
+}
+
+.msgToSend {
+    resize: none;
+    width: 90%;
+}
+
+.sendChat .submit {
+    width: 10%;
+}
+
+.hide {
+    display: none;
+}
+
+#msgList {
+    margin: 10px;
+    overflow-y: scroll; 
+}
+
+.msg {
+    color: white;
+}
+
+.msgAuthor {
+    text-align: left;
+}
+
+.msgContent {
+    text-align: center;
+}
+
+.msgTime {
+    font-size: 9px;
+}
+
+.alternate {
+    background-color: rgba(248, 0, 0, 0.473);
 }
