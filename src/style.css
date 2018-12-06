@@ -81,6 +81,15 @@ p {
     background-color: rgba(0, 0, 0, 0.562);
     height: 100%;
     width: 20%;
+    overflow-x: hidden;
+}
+
+#newConvName {
+    width: 70%;
+}
+
+#submitName {
+    width: 20%;
 }
 
 #chatView {
@@ -106,7 +115,7 @@ p {
 }
 
 .conv_tile:hover {
-    background-color: rgba(0, 0, 0, 0.63);
+    background-color: rgba(0, 0, 0, 0.281);
 }
 
 .selected {
@@ -117,13 +126,12 @@ p {
     height: 75px;
     background-color: blue;
 }
-
 .sendChat {
     margin: 10px;
     display: flex;
 }
 
-.sendChat .msgToSend {
+.msgToSend {
     resize: none;
     width: 100%;
     background-color: rgba(255,255,255,0.5);

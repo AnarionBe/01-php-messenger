@@ -3,7 +3,7 @@
         session_start();
         try
         {
-                $add_message = new PDO('mysql:host=mysql;dbname=messenger;charset=utf8mb4', 'messenger', 'messenger');
+                $bdd = new PDO('mysql:host=mysql;dbname=messenger;charset=utf8', 'messenger', 'messenger');
         }
         catch (Exception $e)
         {
@@ -14,18 +14,16 @@
         if ($_POST['modification']){
                 $newMessage = $_POST['modification'];
                 $ID = $_POST['id'];
-                $req = $add_message -> prepare("UPDATE messages SET message = '$newMessage' WHERE id = $ID");
-                $req->execute();
-                $_POST['modification'] = ""; // Reboot variable 'modification'
-        }
-        elseif ($_POST['message']) {
-                // Insert messages with 'prepare' and variables
+                $req = $bdd->query("UPDATE messages SET message = '$newMessage' WHERE id = $ID");
+                $_POST['modification'] = ""; //Reboot variable 'modification'
+        } elseif ($_POST['message']) {
+                //Insert messages with 'prepare' and variables
                 $date = date("Y-m-d H:i:s");
                 $conversation = $_POST['conv'];
                 $author = $_SESSION['user']->getEmail();
                 $message = $_POST['message'];
-                $req = $add_message->query("INSERT INTO messages VALUES(null, '$author', '$conversation', '$message', '$date');");
-                $_POST['message'] = ""; // Reboot variable 'message'
+                $req = $bdd->query("INSERT INTO messages VALUES(null, '$author', '$conversation', '$message', '$date');");
+                $_POST['message'] = ""; //Reboot variable 'message'
         }
 
         header("Location: ../index.php?conv=".$_POST['conv']);

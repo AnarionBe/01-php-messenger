@@ -45,6 +45,10 @@ class User {
         $this->password_hash = password_hash($password, PASSWORD_BCRYPT, ["cost" => 12]);
     }
 
+    public function add($bdd) {
+        $bdd->query("INSERT INTO users VALUES('$this->email', '$this->password_hash', '$this->firstName', '$this->lastName');");
+    }
+
     public function load($bdd) {
         $result = $bdd->query("SELECT * FROM users WHERE email = '$this->email'");
         $tmp = $result->fetch();
@@ -55,21 +59,15 @@ class User {
         return true;
     }
 
-    public function add($bdd) {
-        $bdd->query("INSERT INTO users(email, password_hash, firstname, lastname) VALUES('$this->email', '$this->password_hash', '$this->firstName', '$this->lastName');");
-    }
-
     public function checkPassword($password) {
         if(password_verify($password, $this->password_hash)) return true;
         else return false;
     }
 
     public function participateTo($bdd, $conv) {
-        $idConv = $conv->getId();
-        $result = $bdd->query("SELECT * FROM conversationParticipation");
-        if($result) $tmp = $result->fetch();
-        else return false;
-        if($tmp['idConversation'] == $idConv && $tmp['user'] = $this->email) return true;
-        else return false;
+        $idConv = $conv->getSubject();
+        $user = $this->email;
+        $result = $bdd->query("SELECT * FROM conversationParticipation WHERE idConversation='$idConv' AND user='$user'");
+        return $result->fetch();
     }
 }

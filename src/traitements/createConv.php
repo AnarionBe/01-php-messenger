@@ -1,4 +1,5 @@
 <?php
+    require('../class/User.php');
     session_start();
     require('../class/Conversation.php');
 
@@ -18,14 +19,14 @@
         if (!empty($_POST['title'])) {
 
             //Créer le sujet de la conversation
-            $conversation-> setSujet($_POST['title']);
+            $conversation-> setSubject($_POST['title']);
             //Permet d'enregistrer le sujet de la nouvelle conversation dans les variables de session.
-            $_SESSION['subject'] = $conversation->getSujet();
+            $_SESSION['subject'] = $conversation->getSubject();
             //Définir l'auteur de la nouvelle conversation.
-            $conversation-> setAuthor($_SESSION['email']);
+            $conversation-> setAuthor($_SESSION['user']->getEmail());
             //Ajouter une nouvelle entrée à la base de données.
             $conversation->add($bdd);
-            header('Location: /index.php');
+            header('Location: ../index.php');
             exit();
         } else echo 'Veuillez remplir le titre de la discussion!';
    
