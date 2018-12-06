@@ -1,4 +1,5 @@
 <?php
+    require('./User.php');
     //Création de la classe conversation qui est définie par un auteur et un sujet de conversation.
     class Conversation {
         private $author;
@@ -28,6 +29,10 @@
         //Fonction qui permet d'ajouter toutes les informations de la conversation dans la base de données.
         public function add($bdd) {
             $bdd->query("INSERT INTO conversations VALUES('$this->subject', '$this->author')");
+        }
+
+        public function addParticipant($user) {
+
         }
     }
 ?>
