@@ -25,6 +25,7 @@
     <title>Meowser</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="styleprofil.css" />
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
     <script src="main.js"></script>
 </head>
 <body>
@@ -45,20 +46,31 @@
         <h1>Profil Meowser</h1>
     </div>
 
-    <div class="photo">
-        <img class="emptyCat" src="../img/MeowLogo_BeCode.png" alt="Photo de profil">
-    </div>
+
 
     <div class="profileArea">
-        <p>Nom : <?php echo $_SESSION['user']->getLastName(); ?></p>
-        <p>Prénom : <?php echo $_SESSION['user']->getFirstName(); ?></p>
-        <p>Mail : <?php echo $_SESSION['user']->getEmail(); ?></p>
+
+        <div class="profile">
+            <p>Nom :</p> 
+            <p>Prénom :</p> 
+            <p>Mail :</p> 
+        </div>
+
+        <div class="profileData">
+            <p><?php echo $_SESSION['user']->getLastName(); ?></p>
+            <p><?php echo $_SESSION['user']->getFirstName(); ?></p>
+            <p><?php echo $_SESSION['user']->getEmail(); ?></p>
+
+        </div>
+
+        <div class="photo">
+            <img class="emptyCat" src="../img/MeowLogo_BeCode.png" alt="Photo de profil">
+        </div>
+
+        <div class="redir">
+            <a href="/pages/modif_profil.php">Modifier votre profil</a>
+        </div>
     </div>
-    
-    <div class="redir">
-        <button><a href="/pages/modif_profil.php">Modifier votre profil</a></button>
-    </div>
-    
 
 
   </body>

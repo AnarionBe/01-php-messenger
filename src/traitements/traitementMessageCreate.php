@@ -29,8 +29,3 @@
         header("Location: ../index.php?conv=".$_POST['conv']);
         exit();
 ?>
-
-
-
-
-
