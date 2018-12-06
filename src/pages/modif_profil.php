@@ -54,16 +54,14 @@ function getField($user, $datas, $field) {
         $errors['profil_error_email'] = "Ce champ est requis";
       }
 
-      if (empty($errors)) { // Changement de nom
-        // nettoyer les données (htmlentities)
-        $lastName = $_POST['lastName'];
-        // enregistrer les données nettoyées
-        $bdd->prepare('UPDATE users SET lastname = ? WHERE email = ?')->execute([$lastName, $user->getEmail()]);
-      }
-
-      if (empty($erros)){
+      if (empty($errors)){ // Changement de pseudo
         $pseudo = $_POST['pseudo'];
         $bdd->prepare('UPDATE users SET pseudo = ? WHERE email = ?')->execute([$pseudo, $user->getEmail()]);
+      }
+
+      if (empty($errors)) { // Changement de nom
+        $lastName = $_POST['lastName'];
+        $bdd->prepare('UPDATE users SET lastname = ? WHERE email = ?')->execute([$lastName, $user->getEmail()]);
       }
 
       if (empty($errors)){ // Changement de prénom
@@ -95,7 +93,7 @@ function getField($user, $datas, $field) {
   <body>
 
      <h1>Meowser</h1> <!--- ajout prénom a l'affichage --->
-     <h2>Modifier votre profil <?php echo $_SESSION['user']->getFirstName() ?></h2>
+     <h2>Modifier votre profil <?php echo $_SESSION['user']->getPseudo() ?></h2>
 
      <p>
        <div class="configProfile">
