@@ -13,6 +13,7 @@
 </head>
 
 <body>
+
     <div class="container">
         <form action="../traitements/traitementLogin.php" method="post">
             <div id="connection">
@@ -33,6 +34,7 @@
                 <br>
             </div>
             <br><input type="submit" value="Se connecter" id="button">
+
         </form>
         
         <footer class = "footer">
@@ -40,5 +42,6 @@
             <script src="./js/login.js"></script>
         </footer>
     </div>
+
 </body>
 </html>
