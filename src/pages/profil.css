@@ -67,10 +67,10 @@ body {
     width: 100px;
     height: 120px;
     left: 5%;
-    top: 3%;
+    top: 7%;
     
     text-align: right;
-    font-size: 20px;
+    font-size: 18px;
     
     color: #000000;
 }
@@ -79,10 +79,10 @@ body {
     position: absolute;
     width: 350px;
     left: 25%;
-    top: 3%;
+    top: 7%;
 
     text-align: left;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .redir {
@@ -97,14 +97,18 @@ body {
 }
 
 a {
-    width: 180px;
-    height: 40px;
+    position: absolute;
+    
+    top: 26%;
+    left: 8%;
 
     font-family: 'Varela Round', sans-serif;
     font-size: 90%;
     text-decoration: none;
     color: initial;
 }
+
+
 
 /*
 
