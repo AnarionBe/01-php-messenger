@@ -67,10 +67,10 @@ body {
     width: 100px;
     height: 120px;
     left: 5%;
-    top: 3%;
+    top: 7%;
     
     text-align: right;
-    font-size: 20px;
+    font-size: 18px;
     
     color: #000000;
 }
@@ -79,10 +79,10 @@ body {
     position: absolute;
     width: 350px;
     left: 25%;
-    top: 3%;
+    top: 7%;
 
     text-align: left;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .redir {
@@ -92,51 +92,36 @@ body {
     width: 25%;
     height: 15%;
 
-    background: rgb(25, 125, 200, 0.5);
+    background: rgb(25, 125, 200);
     border-radius: 10px;
+    color: white;
 }
 
 a {
-    width: 180px;
-    height: 40px;
+    position: absolute;
+    
+    top: 26%;
+    left: 8%;
 
     font-family: 'Varela Round', sans-serif;
     font-size: 90%;
     text-decoration: none;
-    color: initial;
+    color: white;
 }
 
-/*
+.goBack {
+    width: 20%;
+    height: 20%;
+    position: absolute;
+    top: 85%;
+    left: 3%;
 
-Modifier votre profil
+    font-size: 13px;
+    font-family: 'Varela Round', sans-serif;
+}
 
-position: absolute;
-width: 160px;
-height: 33px;
-left: 636px;
-top: 534px;
-
-font-family: Aldrich;
-font-style: normal;
-font-weight: normal;
-line-height: normal;
-font-size: 14px;
-text-align: center;
-
-color: #000000;
-
-text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
- Rectangle 2 
-
-position: absolute;
-width: 170px;
-height: 30px;
-left: 631px;
-top: 535px;
-
-background: #95BCCD;
-border-radius: 10px;
-*/
+.goBack a {
+    color: black;
+}
 
 

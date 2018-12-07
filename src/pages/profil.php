@@ -72,6 +72,10 @@
         <div class="redir">
             <a href="/pages/modif_profil.php">Modifier votre profil</a>
         </div>
+
+        <div class="goBack">
+            <a href="../index.php">Revenir en arrière</a>
+        </div>
     </div>
 
 
