@@ -128,3 +128,16 @@ input {
     border-radius: 5px;
     background-color: #292929;
 }
+
+.goBack {
+    width: 20%;
+    height: 20%;
+    position: absolute;
+    top: 90%;
+    left: 5%;
+
+    font-size: 12px;
+    font-family: 'Varela Round', sans-serif;
+    text-decoration: none;
+    color: initial;
+}

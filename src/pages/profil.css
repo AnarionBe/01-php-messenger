@@ -108,39 +108,13 @@ a {
     color: initial;
 }
 
-
-
-/*
-
-Modifier votre profil
-
-position: absolute;
-width: 160px;
-height: 33px;
-left: 636px;
-top: 534px;
-
-font-family: Aldrich;
-font-style: normal;
-font-weight: normal;
-line-height: normal;
-font-size: 14px;
-text-align: center;
-
-color: #000000;
-
-text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
- Rectangle 2 
-
-position: absolute;
-width: 170px;
-height: 30px;
-left: 631px;
-top: 535px;
-
-background: #95BCCD;
-border-radius: 10px;
-*/
+.goBack {
+    width: 20%;
+    height: 20%;
+    position: absolute;
+    top: 85%;
+    left: 5%;
+    font-size: 12px;
+}
 
 

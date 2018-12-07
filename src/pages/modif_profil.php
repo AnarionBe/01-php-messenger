@@ -222,6 +222,9 @@ function getField($user, $datas, $field) {
               </div>
             </div>
 
+            <div class="goBack">
+              <a href="profil.php">Revenir en arrière</a>
+            </div>
 
           </form>
         </div>
