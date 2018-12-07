@@ -13,6 +13,7 @@
 </head>
 
 <body>
+
     <div class="container">
         <form action="../traitements/traitementLogin.php" method="post">
             <div id="connection">
@@ -26,12 +27,14 @@
                 <br><input type="checkbox" name="signup" id="signup" <?php if($_SESSION['signup_error'] != "") echo "checked";?>><label for="signup">Créer un compte</label>
             </div>
             <div id="inscription">
+                <br><input type="text" name="pseudo" placeholder="Pseudo">
                 <br><input type="text" name="lastname" placeholder="Nom">
                 <br><input type="text" name="firstname" placeholder="Prénom">
                 <?php if($_SESSION['signup_error'] != "") echo "<br><span class='error_msg'>".$_SESSION['signup_error']."</span>";?>
                 <br>
             </div>
             <br><input type="submit" value="Se connecter" id="button">
+
         </form>
         
         <footer class = "footer">
@@ -39,5 +42,6 @@
             <script src="./js/login.js"></script>
         </footer>
     </div>
+
 </body>
 </html>

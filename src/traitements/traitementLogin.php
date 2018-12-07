@@ -21,9 +21,7 @@
     if(!isset($_POST['signup'])) { //cas de login
         if($user->load($bdd)) {
             if($user->checkPassword($password)) {
-                /*$_SESSION['email'] = $user->getEmail();
-                $_SESSION['nom'] = $user->getLastName();
-                $_SESSION['prenom'] = $user->getFirstName();*/
+                $user->deleteHash();
                 $_SESSION['user'] = $user;
                 header('Location: ../index.php');
                 exit();
@@ -38,6 +36,7 @@
             exit();
         }
     } else { //cas d'incription
+        $user->setPseudo($pseudo);
         if($user->load($bdd)) {
             $_SESSION['signup_error'] = "⚠️ L'adresse mail à déjà été utilisée !";
             header('Location: ../pages/login.php');
