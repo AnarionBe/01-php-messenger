@@ -92,8 +92,9 @@ body {
     width: 25%;
     height: 15%;
 
-    background: rgb(25, 125, 200, 0.5);
+    background: rgb(25, 125, 200);
     border-radius: 10px;
+    color: white;
 }
 
 a {
