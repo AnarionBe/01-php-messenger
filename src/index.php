@@ -54,15 +54,19 @@
                     
                     <div class="dropdownmenu">
 
-                        <a href="./pages/profil.php">Accéder au profil</a>                  
+                        <a class="buttonDDM" href="./pages/profil.php">Accéder au profil</a>                  
                         <form method="post" action="./traitements/createConv.php" id="createConvForm">
+                            <label for="title" class="label">Nouvelle discussion : </label>
                             <input type="text" name="title" id="newConvName">
-                            <input type="submit" id="submitName">
+                            <input type="submit" id="submitName" value="Créer">
                         </form>
                         <form>
-                            <button type="submit" formaction="./traitements/deconnection.php">Se déconnecter</button>
+                            <button class="buttonDDM" type="submit" formaction="./traitements/deconnection.php">Se déconnecter</button>
                         </form>
                     </div>
+                </div>
+                <div>
+                    <h3> Conversation : </h3>
                 </div>
             <?php
                 $result = $bdd->query("SELECT * FROM conversations");
@@ -70,6 +74,7 @@
                     $conv = new Conversation($tmp['author'], $tmp['subject']);
                     if($activeUser->participateTo($bdd, $conv)) {
             ?>
+                
                 <div class="conv_tile">
                     <a class="conv_name" href="index.php?conv=<?php echo $conv->getSubject();?>"><?php echo $conv->getSubject();?></a>
                 </div>
@@ -89,16 +94,15 @@
                     while($data = $answer->fetch()) {
                 ?>
                     <div class="msg <?php if($i % 2 == 0) echo "alternate"?>" data-id=<?php echo $data['id'];?>>
-                        <div class="mesgInfo">
-                            <span class="msgTime">(<?php echo $data['hour'];?>) </span>
-                            <span class="msgAuthor"><?php echo $data['author'];?> : </span>
-                        </div>
-                        <span class="msgContent"><?php echo $data['message'];?></span>
                         
+                        <span class="msgTime">(<?php echo $data['hour'];?>) </span>
+                        <span class="msgAuthor"><?php echo $data['author'];?> : </span>
+                        <span class="msgContent"><?php echo $data['message'];?></span>
+                       
                         <?php if($data['author'] == $_SESSION['user']->getPseudo()) {?>
                         <button class="msgEditButton">Modifier</button>
                         <?php }?>
-                        
+                    
                     </div>
                 <?php 
                     $i++;

@@ -96,8 +96,14 @@ document.addEventListener("DOMContentLoaded", function(e) {
     affichageEmojis();
 
     //SCRIPT pour le dropdown menu
+    let compteur = 0
     document.querySelector('.menuOption').addEventListener('click', function() {
-        document.querySelector('.dropdownmenu').style.display = "flex";
-    })
+        if (compteur%2 == 0) {
+            document.querySelector('.dropdownmenu').style.display = "flex";
+        } else {
+            document.querySelector('.dropdownmenu').style.display = "none";
+        };
+        compteur++;
+    });
 
 });
