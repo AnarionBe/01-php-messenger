@@ -56,9 +56,9 @@ function getField($user, $datas, $field) {
 
       if (empty($errors)){ // Changement de pseudo
         $pseudo = $_POST['pseudo'];
-        $bdd->prepare('UPDATE users SET pseudo = ? WHERE email = ?')->execute([$pseudo, $user->getEmail()]);
+        $temp = $bdd->prepare('UPDATE users SET pseudo = ? WHERE email = ?')->execute([$pseudo, $user->getEmail()]);
       }
-
+    
       if (empty($errors)) { // Changement de nom
         $lastName = $_POST['lastName'];
         $bdd->prepare('UPDATE users SET lastname = ? WHERE email = ?')->execute([$lastName, $user->getEmail()]);
@@ -66,7 +66,7 @@ function getField($user, $datas, $field) {
 
       if (empty($errors)){ // Changement de prénom
         $firstName = $_POST['firstName'];
-        $bdd->prepare('UPDATE users SET firstName = ? WHERE email = ?')->execute([$firstName, $user->getEmail()]);
+        $bdd->prepare('UPDATE users SET firstname = ? WHERE email = ?')->execute([$firstName, $user->getEmail()]);
       }
 
       if (empty($errors)){ // Changement d'email
@@ -89,116 +89,120 @@ function getField($user, $datas, $field) {
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="modifProfil.css" />
     <title>Meowser - Modifier le profil</title>
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
   </head>
   <body>
 
-     <h1>Meowser</h1> <!--- ajout prénom a l'affichage --->
-     <h2>Modifier votre profil <?php echo $_SESSION['user']->getPseudo() ?></h2>
+    <div>
+      <h1 class="titleProfile">Modifier votre profil </h1>
+    </div>
+
 
      <p>
        <div class="configProfile">
           <form action="../pages/modif_profil.php" method="post" class="profileModif">
 
-            <div class="pseudo">
+          <div class="fields">
+              <div class="pseudo">
 
-              <div class="pseudoLab">
-                <label for="Pseudo">Pseudo :</label>
+                <div class="lab">
+                  <label for="Pseudo">Pseudo :</label>
+                </div>
+
+                <div class="input">
+                  <input type="text" name="pseudo" value="<?php echo getField($user, $_POST, 'pseudo'); ?>">
+
+                  <?php 
+                    if(array_key_exists('profil_error_pseudo', $errors)){
+                      echo '<p class="error">' . $errors['profil_error_pseudo'] . '</p>';
+                    }
+                  ?>
+
+                </div>
               </div>
 
-              <div class="pseudoInput">
-                <input type="text" name="pseudo" value="<?php echo getField($user, $_POST, 'pseudo'); ?>">
+              <div class="nom">
 
-                <?php 
-                  if(array_key_exists('profil_error_pseudo', $errors)){
-                    echo '<p class="error">' . $errors['profil_error_pseudo'] . '</p>';
-                  }
-                ?>
+                <div class="lab">
+                  <label for="nom">Nom :</label>
+                </div>
+
+                <div class="input">
+                  <input type="text" name="lastName" value="<?php echo getField($user, $_POST, 'lastName'); ?>">
+
+                  <?php 
+                    if(array_key_exists('profil_error_lastName', $errors)){
+                      echo '<p class="error">' . $errors['profil_error_lastName'] . '</p>';
+                    }
+                  ?>
+                </div>
 
               </div>
-            </div>
 
-            <div class="nom">
+              <div class="prenom">
 
-              <div class="nomLab">
-                <label for="nom">Nom :</label>
+                <div class="lab">
+                  <label for="prenom">Prénom :</label>
+                </div>
+
+                <div class="input">
+                  <input type="text" name="firstName" value="<?php echo getField($user, $_POST, 'firstName'); ?>">
+
+                  <?php 
+                    if(array_key_exists('profil_error_firstName', $errors)){
+                      echo '<p class="error">' . $errors['profil_error_firstName'] . '</p>';
+                    }
+                  ?>
+                </div>
+
               </div>
 
-              <div class="nomInput">
-                <input type="text" name="lastName" value="<?php echo getField($user, $_POST, 'lastName'); ?>">
+              <div class="email">
 
-                <?php 
-                  if(array_key_exists('profil_error_lastName', $errors)){
-                    echo '<p class="error">' . $errors['profil_error_lastName'] . '</p>';
-                  }
-                ?>
+                <div class="lab">
+                  <label for="email">Email :</label>
+                </div>
+
+                <div class="input">
+                  <input type="text" name="email" value="<?php echo getField($user, $_POST, 'email'); ?>">
+
+                  <?php 
+                    if(array_key_exists('profil_error_email', $errors)){
+                      echo '<p class="error">' . $errors['profil_error_email'] . '</p>';
+                    }
+                  ?>
+                </div>
+
               </div>
 
-            </div>
+              <div class="password">
 
-            <div class="prenom">
+                <div class="lab">
+                  <label for="password">Nouveau mot de passe :</label>
+                </div>
 
-              <div class="prenomLab">
-                <label for="prenom">Prénom :</label>
+                <div class="input">
+                  <input type="password" name="password" value="">
+                </div>
+
               </div>
 
-              <div class="prenomInput">
-                <input type="text" name="firstName" value="<?php echo getField($user, $_POST, 'firstName'); ?>">
+              <div class="confirmPassword">
 
-                <?php 
-                  if(array_key_exists('profil_error_firstName', $errors)){
-                    echo '<p class="error">' . $errors['profil_error_firstName'] . '</p>';
-                  }
-                ?>
+                <div class="lab">
+                  <label for="confirmpassword">Confirmation du mot de passe :</label>
+                </div>
+
+                <div class="input">
+                  <input type="password" name="confirmPassword" value="">
+
+                  <?php 
+                    if(array_key_exists('profil_error_password', $errors)){
+                      echo '<p class="error">' . $errors['profil_error_password'] . '</p>';
+                    }
+                  ?>
+                </div>
               </div>
-
-            </div>
-
-            <div class="email">
-
-              <div class="emailLab">
-                <label for="email">Email :</label>
-              </div>
-
-              <div class="emailInput">
-                <input type="text" name="email" value="<?php echo getField($user, $_POST, 'email'); ?>">
-
-                <?php 
-                  if(array_key_exists('profil_error_email', $errors)){
-                    echo '<p class="error">' . $errors['profil_error_email'] . '</p>';
-                  }
-                ?>
-              </div>
-
-            </div>
-
-            <div class="password">
-
-              <div class="passwordLab">
-                <label for="password">Nouveau mot de passe :</label>
-              </div>
-
-              <div class="passwordInput">
-                <input type="password" name="password" value="">
-              </div>
-
-            </div>
-
-            <div class="confirmPassword">
-
-              <div class="confirmPasswordLab">
-                <label for="confirmpassword">Confirmation du mot de passe :</label>
-              </div>
-
-              <div class="confirmPasswordInput">
-                <input type="password" name="confirmPassword" value="">
-
-                <?php 
-                  if(array_key_exists('profil_error_password', $errors)){
-                    echo '<p class="error">' . $errors['profil_error_password'] . '</p>';
-                  }
-                ?>
-              </div>
-
             </div>
 
            <!--< <div class="avatar">

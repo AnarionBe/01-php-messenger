@@ -16,10 +16,43 @@ body {
 }
 
 
-.configProfile {
-    width: 600px;
-    border: 1px solid black;
+.titleProfile {
+    position: absolute;
+    width: 50%;
+    height: 10%;
+    left: 19%;
+    top: 13%;
+    
+    font-family: 'Varela Round', sans-serif;
+    font-size: 46px;
+    text-align: center;
+    
+    color: rgba(0, 0, 0, 0.7);
+    
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+
+.configProfile {
+    position: absolute;
+    width: 50%;
+    height: 45%;
+
+    background: rgba(255, 255, 255, 0.63);
+    border-radius: 35px;
+    box-sizing: border-box;
+    backdrop-filter: blur(15px);
+}
+
+.fields {
+    margin: 5%;
+    margin-left: 2%;
+}
+
+.lab {
+    width: 45%;
+    text-align: right;
+}
+
 
 .pseudo {
     display: flex;
@@ -77,26 +110,21 @@ input {
     color: red;
 }
 
-/* ------------- Page de profil -------------  */
-
-.titleProfile {
-    width: 250px;
-    border: 1px solid white;
-    text-align: center;
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 80%;
+    left: 35%;
+    width: 30%;
+    height: 15%;
 }
 
-.profileArea {
-    border: 1px solid #292929;
-    width: 500px;
-    height: 600px;
-    position: relative;
-    margin-bottom: 100px;
-}
 
-.photo {
-    width: 150px;
-    height: 150px;
+input {
+    color: aliceblue;
+    margin: 2px;
     border: 2px solid #292929;
-    border-radius: 100px;
-    margin-right: 400px;
+    border-radius: 5px;
+    background-color: #292929;
 }
