@@ -77,6 +77,11 @@
                 
                 <div class="conv_tile">
                     <a class="conv_name" href="index.php?conv=<?php echo $conv->getSubject();?>"><?php echo $conv->getSubject();?></a>
+                    <form method="post" action="./traitements/ajoutUser.php">
+                        <input type="text" placeholder="pseudo" name="pseudo">
+                        <input type="text" name="conv" class="hide" value=<?php echo $conv->getSubject();?>>
+                        <input type="submit" class="addUser" value="ajouter">
+                    </form>
                 </div>
             <?php
                     }

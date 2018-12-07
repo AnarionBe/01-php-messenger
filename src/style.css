@@ -253,3 +253,7 @@ p {
     background-color: rgba(248, 0, 0, 0.473);
     border-radius: 5px;
 }
+
+.conv_tile form {
+    width: 30%;
+}
