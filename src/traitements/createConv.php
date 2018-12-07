@@ -17,7 +17,8 @@
     
         //Test pour voir si le champs 'title' a été bien rempli.
         if (!empty($_POST['title'])) {
-            $conversation->setSubject($_POST['title']);
+            $title = htmlspecialchars($_POST['title']);
+            $conversation->setSubject($title);
             $_SESSION['subject'] = $conversation->getSubject();
             $conversation->setAuthor($_SESSION['user']->getPseudo());
             $conversation->add($bdd, $_SESSION['user']->getPseudo());
