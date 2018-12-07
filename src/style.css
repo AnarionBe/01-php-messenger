@@ -103,6 +103,7 @@ p {
 
 .conv_tile {
     height: 50px;
+    display: flex;
 }
 
 .conv_name {
@@ -175,4 +176,8 @@ p {
 .alternate {
     background-color: rgba(248, 0, 0, 0.473);
     border-radius: 5px;
+}
+
+.conv_tile form {
+    width: 30%;
 }

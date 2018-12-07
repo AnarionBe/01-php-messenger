@@ -33,6 +33,7 @@
         }
 
         public function addParticipant($bdd, $user) {
-            
+            $date = date("Y-m-d H:i:s");
+            var_dump($bdd->query("INSERT INTO conversationParticipation VALUES('$this->subject', '$user', '$date')"));
         }
     }
