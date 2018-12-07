@@ -10,12 +10,17 @@
     } catch(Exception $e) {
         die('Erreur : '.$e->getMessage());
     }
+    $email = htmlspecialchars($_POST['email']);
+    $password = htmlspecialchars($_POST['password']);
+    $pseudo = htmlspecialchars ($_POST['pseudo']);
+    $lastname = htmlspecialchars($_POST['lastname']);
+    $firstname = htmlspecialchars($_POST['firstname']);
 
-    $user = new User($_POST['email']);
+    $user = new User ($email);
 
     if(!isset($_POST['signup'])) { //cas de login
         if($user->load($bdd)) {
-            if($user->checkPassword($_POST['password'])) {
+            if($user->checkPassword($password)) {
                 /*$_SESSION['email'] = $user->getEmail();
                 $_SESSION['nom'] = $user->getLastName();
                 $_SESSION['prenom'] = $user->getFirstName();*/
@@ -38,10 +43,10 @@
             header('Location: ../pages/login.php');
             exit();
         } else {
-            $user->setPassword($_POST['password']);
-            $user->setEmail($_POST['email']);
-            $user->setLastName($_POST['lastname']);
-            $user->setFirstName($_POST['firstname']);
+            $user->setPassword($password);
+            $user->setEmail($email);
+            $user->setLastName($lastname);
+            $user->setFirstName($firstname);
             $user->add($bdd);
             /*$_SESSION['email'] = $user->getEmail();
             $_SESSION['nom'] = $user->getLastName();
