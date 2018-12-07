@@ -106,7 +106,7 @@ a {
     font-family: 'Varela Round', sans-serif;
     font-size: 90%;
     text-decoration: none;
-    color: initial;
+    color: white;
 }
 
 .goBack {
@@ -114,8 +114,14 @@ a {
     height: 20%;
     position: absolute;
     top: 85%;
-    left: 5%;
-    font-size: 12px;
+    left: 3%;
+
+    font-size: 13px;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.goBack a {
+    color: black;
 }
 
 
