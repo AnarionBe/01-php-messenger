@@ -12,20 +12,19 @@
 
                 // Modifying msgs
         if ($_POST['modification']){
-                $newMessage = $_POST['modification'];
+                $modification = htmlspecialchars($_POST['modification']);
                 $ID = $_POST['id'];
-                $req = $bdd->query("UPDATE messages SET message = '$newMessage' WHERE id = $ID");
-                $_POST['modification'] = ""; //Reboot variable 'modification'
+                $req = $bdd->query("UPDATE messages SET message = '$modification' WHERE id = $ID");
         } elseif ($_POST['message']) {
                 //Insert messages with 'prepare' and variables
+                $message = htmlspecialchars($_POST['message']);
                 $date = date("Y-m-d H:i:s");
                 $conversation = $_POST['conv'];
                 $author = $_SESSION['user']->getPseudo();
-                $message = $_POST['message'];
                 $req = $bdd->query("INSERT INTO messages VALUES(null, '$author', '$conversation', '$message', '$date');");
-                $_POST['message'] = ""; //Reboot variable 'message'
+
         }
 
         header("Location: ../index.php?conv=".$_POST['conv']);
         exit();
-?>
+
