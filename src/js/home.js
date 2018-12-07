@@ -95,4 +95,9 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
     affichageEmojis();
 
+    //SCRIPT pour le dropdown menu
+    document.querySelector('.menuOption').addEventListener('click', function() {
+        document.querySelector('.dropdownmenu').style.display = "flex";
+    })
+
 });
