@@ -5,8 +5,6 @@
     
     
     $activeUser = $_SESSION['user'];
-    //var_dump($_SESSION['user']);
-    //session_destroy();
     try {
         $bdd = new PDO('mysql:host=mysql;dbname=messenger;charset=utf8mb4', 'messenger', 'messenger');
     } catch(Exception $e) {
@@ -87,11 +85,19 @@
                     $answer = $bdd->query("SELECT * FROM messages WHERE conversation='$conv' ORDER BY id");
                     $i = 0;
                     while($data = $answer->fetch()) {
+                        $mess = $data['id'];
+                        $numberReact = $bdd->exec("SELECT * FROM reactions WHERE message='$mess'");
                 ?>
                     <div class="msg <?php if($i % 2 == 0) echo "alternate"?>" data-id=<?php echo $data['id'];?>>
                         <span class="msgTime">(<?php echo $data['hour'];?>) </span>
                         <span class="msgAuthor"><?php echo $data['author'];?> : </span>
                         <span class="msgContent"><?php echo $data['message'];?></span>
+                        <form class="inline-form" method="post">
+                            <input type="text" value=<?php echo $data['id'];?> name="id" class="hide">
+                            <input type="text" value=<?php echo $_GET['conv'];?> name="conv" class="hide">
+                            <button type="submit" class="emote" formaction="./traitements/traitementReactions.php">&#x1F44D;</button>
+                        </form>
+                        <span><?php echo $numberReact?></span>
                         <?php if($data['author'] == $_SESSION['user']->getPseudo()) {?>
                         <button class="msgEditButton">Modifier</button>
                         <?php }?>

@@ -181,3 +181,19 @@ p {
 .conv_tile form {
     width: 30%;
 }
+
+.emote {
+    border: 1px black solid;
+}
+
+.emote:hover {
+    cursor: pointer;
+}
+
+.checked {
+    background-color: rgba(255, 255, 255, 0.534);
+}
+
+.inline-form {
+    display: inline;
+}
