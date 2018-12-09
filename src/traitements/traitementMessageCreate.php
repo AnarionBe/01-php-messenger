@@ -21,8 +21,8 @@
                 $date = date("Y-m-d H:i:s");
                 $conversation = $_POST['conv'];
                 $author = $_SESSION['user']->getPseudo();
-                $req = $bdd->query("INSERT INTO messages VALUES(null, '$author', '$conversation', '$message', '$date');");
-
+                $req = $bdd->prepare("INSERT INTO messages VALUES(null, ?, ?, ?, ?);");
+                $req->execute(array($author, $conversation, $message, $date));
         }
 
         header("Location: ../index.php?conv=".$_POST['conv']);

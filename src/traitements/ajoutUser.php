@@ -11,11 +11,11 @@
     $pseudo = $_POST['pseudo'];
     $result = $bdd->query("SELECT pseudo FROM users WHERE pseudo='$pseudo'");
     if(!($tmp = $result->fetch())) {
-        header("Location: ../index.php".$_POST['conv']);
+        header("Location: ../index.php?conv=".$_POST['conv']);
+        exit();
+    } else {
+        $conv = new Conversation("null", $_POST['conv']);
+        $conv->addParticipant($bdd, $pseudo);
+        header("Location: ../index.php?conv=".$_POST['conv']);
         exit();
     }
-
-    $conv = new Conversation("null", $_POST['conv']);
-    $conv->addParticipant($bdd, $pseudo);
-    header("Location: ../index.php".$_POST['conv']);
-    exit();

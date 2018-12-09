@@ -47,9 +47,6 @@
             $user->setLastName($lastname);
             $user->setFirstName($firstname);
             $user->add($bdd);
-            /*$_SESSION['email'] = $user->getEmail();
-            $_SESSION['nom'] = $user->getLastName();
-            $_SESSION['prenom'] = $user->getFirstName();*/
             $_SESSION['user'] = $user;
             header('Location: ../index.php');
             exit();
