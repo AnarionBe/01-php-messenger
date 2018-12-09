@@ -53,7 +53,6 @@ body {
     text-align: right;
 }
 
-
 .pseudo {
     display: flex;
     justify-content: space-between;
@@ -104,6 +103,11 @@ body {
 
 input {
     width: 250px;
+    color: white;
+    margin: 2px;
+    border: 2px solid #292929;
+    border-radius: 5px;
+    background-color: #292929;
 }
 
 .error {
@@ -120,11 +124,18 @@ input {
     height: 15%;
 }
 
+.goBack {
+    width: 20%;
+    height: 20%;
+    position: absolute;
+    top: 90%;
+    left: 5%;
 
-input {
-    color: aliceblue;
-    margin: 2px;
-    border: 2px solid #292929;
-    border-radius: 5px;
-    background-color: #292929;
+    font-size: 12px;
+    font-family: 'Varela Round', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
 }

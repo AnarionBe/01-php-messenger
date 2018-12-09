@@ -19,8 +19,10 @@
     die('Erreur : '.$e->getMessage());
 }
 
+// Variable pour les erreurs, qui est un tableau vide
 $errors = [];
 
+// Récupérateur de données afin de remplir les champs du formulaire de modification de profil.
 function getField($user, $datas, $field) {
   if (array_key_exists($field, $datas)) {
     return $datas[$field];
@@ -30,7 +32,6 @@ function getField($user, $datas, $field) {
   }
 }
 
-
 // Changement et vérification du mot de passe
   // Changement de MDP
   if (!empty($_POST)){ // Dans le cas où l'utilisateur n'entre pas les même mots de passe.
@@ -38,19 +39,19 @@ function getField($user, $datas, $field) {
         $errors['profil_error_password'] = "Les mots de passe ne correspondent pas.";
       }
 
-      if(empty($_POST['pseudo'])){
+      if(empty($_POST['pseudo'])){ // Si l'utilisateur n'a pas rempli le champ "pseudo"
         $errors['profil_error_pseudo'] = "Ce champ est requis";
       }
 
-      if(empty($_POST['firstName'])){ 
+      if(empty($_POST['firstName'])){ // Si l'utilisateur n'a pas rempli le champ "prénom"
         $errors['profil_error_firstName'] = "Ce champ est requis";
       }
 
-      if(empty($_POST['lastName'])){
+      if(empty($_POST['lastName'])){ // Si l'utilisateur n'a pas rempli le champ "nom"
         $errors['profil_error_lastName'] = "Ce champ est requis";
       }
 
-      if(empty($_POST['email'])){
+      if(empty($_POST['email'])){ // Si l'utilisateur n'a pas rempli le champ "email"
         $errors['profil_error_email'] = "Ce champ est requis";
       }
 
@@ -222,6 +223,9 @@ function getField($user, $datas, $field) {
               </div>
             </div>
 
+            <div class="goBack">
+              <a href="profil.php">Revenir en arrière</a>
+            </div>
 
           </form>
         </div>
