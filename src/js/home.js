@@ -21,6 +21,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
             let div = document.createElement("div");
             let conv = document.createElement("input");
 
+            let p = document.createElement("p"); //modified
+
             //Configuration des éléments à insérer
             cancel.innerHTML = "Annuler";
             cancel.style.width = "100%";
@@ -29,12 +31,18 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 location.reload();
             });
 
+            p.setAttribute("class", "emoji-picker-container"); //modified
+
+
             commit.setAttribute("type", "submit");
             commit.setAttribute("value", "Confirmer");
             commit.style.width = "100%";
 
             input.setAttribute("class", "msgToSend");
             input.setAttribute("name", "modification");
+
+            input.setAttribute("data-emojiable", "true"); //modified
+
             input.innerHTML = parent.children[2].innerHTML;
 
             id.value = parent.getAttribute("data-id");
@@ -57,10 +65,45 @@ document.addEventListener("DOMContentLoaded", function(e) {
             div.appendChild(commit);
             div.appendChild(cancel);
             parent.parentElement.replaceChild(form, parent);
-            form.appendChild(input);
+
+            p.appendChild(input); //modified
+            form.appendChild(p); //modified
+
             form.appendChild(div);
             form.appendChild(id);
             form.appendChild(conv);
+
+            affichageEmojis();
+
         });
     });
+
+    //SCRIPT pour afficher le choix des emojis 
+
+    function affichageEmojis() {
+        // Initializes and creates emoji set from sprite sheet
+        window.emojiPicker = new EmojiPicker({
+            emojiable_selector: '[data-emojiable=true]',
+            assetsPath: '/lib/img/',
+            popupButtonClasses: 'fa fa-smile-o'
+        });
+        // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
+        // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
+        // It can be called as many times as necessary; previously converted input fields will not be converted again
+        window.emojiPicker.discover();
+    };
+
+    affichageEmojis();
+
+    //SCRIPT pour le dropdown menu
+    let compteur = 0
+    document.querySelector('.menuOption').addEventListener('click', function() {
+        if (compteur%2 == 0) {
+            document.querySelector('.dropdownmenu').style.display = "flex";
+        } else {
+            document.querySelector('.dropdownmenu').style.display = "none";
+        };
+        compteur++;
+    });
+
 });

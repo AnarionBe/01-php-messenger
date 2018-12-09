@@ -47,22 +47,32 @@
         <div id="connected">
             <aside id="listConv">
                 <div id="profile">
-                    <a href="./pages/profil.php"><?php echo $_SESSION['user']->getPseudo(); ?></a>
+                    <button class='menuOption'><?php echo $_SESSION['user']->getPseudo(); ?></button>
                     <span><?php echo $_SESSION['user']->getEmail();?></span>
-                    <form>
-                        <button type="submit" formaction="./traitements/deconnection.php">Se déconnecter</button>
-                    </form>
+                    
+                    <div class="dropdownmenu">
+
+                        <a class="buttonDDM" href="./pages/profil.php">Accéder au profil</a>                  
+                        <form method="post" action="./traitements/createConv.php" id="createConvForm">
+                            <label for="title" class="label">Nouvelle discussion : </label>
+                            <input type="text" name="title" id="newConvName">
+                            <input type="submit" id="submitName" value="Créer">
+                        </form>
+                        <form>
+                            <button class="buttonDDM" type="submit" formaction="./traitements/deconnection.php">Se déconnecter</button>
+                        </form>
+                    </div>
                 </div>
-                <form method="post" action="./traitements/createConv.php" id="createConvForm">
-                    <input type="text" name="title" id="newConvName">
-                    <input type="submit" id="submitName">
-                </form>
+                <div>
+                    <h3> Conversation : </h3>
+                </div>
             <?php
                 $result = $bdd->query("SELECT * FROM conversations");
                 while($tmp = $result->fetch()) {
                     $conv = new Conversation($tmp['author'], $tmp['subject']);
                     if($activeUser->participateTo($bdd, $conv)) {
             ?>
+                
                 <div class="conv_tile">
                     <a class="conv_name" href="index.php?conv=<?php echo $conv->getSubject();?>"><?php echo $conv->getSubject();?></a>
                     <form method="post" action="./traitements/ajoutUser.php">
@@ -89,6 +99,7 @@
                         $numberReact = $bdd->exec("SELECT * FROM reactions WHERE message='$mess'");
                 ?>
                     <div class="msg <?php if($i % 2 == 0) echo "alternate"?>" data-id=<?php echo $data['id'];?>>
+                        
                         <span class="msgTime">(<?php echo $data['hour'];?>) </span>
                         <span class="msgAuthor"><?php echo $data['author'];?> : </span>
                         <span class="msgContent"><?php echo $data['message'];?></span>
@@ -101,6 +112,7 @@
                         <?php if($data['author'] == $_SESSION['user']->getPseudo()) {?>
                         <button class="msgEditButton">Modifier</button>
                         <?php }?>
+                    
                     </div>
                 <?php 
                     $i++;
@@ -127,29 +139,13 @@
     </footer>
 
 
-<!-- SCRIPT pour afficher le choix des emojis -->
+<!-- Documents JS pour afficher le choix des emojis -->
   <script src="/pages/jQuery.js"></script>
   <script src="/lib/js/config.js"></script>
   <script src="/lib/js/util.js"></script>
   <script src="/lib/js/jquery.emojiarea.js"></script>
   <script src="/lib/js/emoji-picker.js"></script>
 
-<script>
-    $(function() {
-    // Initializes and creates emoji set from sprite sheet
-    window.emojiPicker = new EmojiPicker({
-        emojiable_selector: '[data-emojiable=true]',
-        assetsPath: '/lib/img/',
-        popupButtonClasses: 'fa fa-smile-o'
-    });
-    // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
-    // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
-    // It can be called as many times as necessary; previously converted input fields will not be converted again
-    window.emojiPicker.discover();
-    });
-</script>
-
-<!-- FIN DU SCRIPT pour afficher le choix des emojis -->
     
 </body>
 </html>
