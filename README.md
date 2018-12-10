@@ -25,7 +25,7 @@ L'utilisateur est redirigé vers la page de chat [http://localhost:8000/index.ph
 
 L'utilisateur peut accèder à l'espace membre en cliquant sur son pseudo, à gauche de l'écran. Il est d'abord redirigé vers la page de profil [http://localhost:8000/pages/profil.php] puis, s'il le désire, vers la page de modification de profil [http://localhost:8000/pages/modif_profil.php]s'il souhaite éditer ses informations.
 
-    - La page de profil [src/pages/profil.php] est une page simple qui sert à afficher les informations de l'utilisateur.
+   - La page de profil [src/pages/profil.php] est une page simple qui sert à afficher les informations de l'utilisateur.
     Au chargement, la session de l'utilisateur est démarrée grâce à un session_start(); On récupère les données dans la BDD afin de les afficher sur l'interface  grâce à un echo des fonctions "getPseudo, getLastname, getFirstname, getEmail" qui ont été mises en place dans le fichier [src/class/User.php].
     La partie ronde avec le logo du messenger Meow est l'endroit supposé afin d'afficher l'avatar de l'utilisateur, mais n'a pas encore été mis en place.
     Un début de code prévu à cet effet se trouve dans le fichier [src/traitements/avatar.php].
