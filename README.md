@@ -40,5 +40,17 @@ L'utilisateur peut accèder à l'espace membre en cliquant sur son pseudo, à ga
 
 ## Checklist
 - [X] connection/inscription
-
+- [X] création conversations
+- [X] envois messages
+- [X] edition message
+- [ ] réactions (pas terminé)
+- [X] emotes dans les messages
+- [X] modification profil
+- [ ] messages lus /non lus
+- [ ] envois de fichier joint (pas intégré)
+- [ ] ajout avatar (wip)
+- [ ] détail css
+- [X] design général
+- [X] structure base de données
+- [ ] structure code
 
