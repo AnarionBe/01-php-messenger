@@ -10,22 +10,22 @@ Important: une fonction htmlspecialchars empêche l'utilisateur d'injecter du HT
 
 L'utilisateur est redirigé vers la page de chat [http://localhost:8000/index.php].
 Sur la gauche: 
-       - Les données d'identification de l'utilisateur courant apparaissent: son identifiant et son adresse mail. En cliquant sur son identifiant, l'utilisateur est redirigé vers l'espace membre.
+- Les données d'identification de l'utilisateur courant apparaissent: son identifiant et son adresse mail. En cliquant sur son identifiant, l'utilisateur est redirigé vers l'espace membre.
 - Avec le bouton juste en dessous, il a la possibilité de se déconnecter. 
 - Un champ libre et un bouton "submit" permet à l'utilisateur de créer une conversation en lui donnant un intitulé. 
 - Une fois cette conversation créée, elle apparait aussi dans la partie gauche de l'écran. En cliquant sur son titre, l'utilisateur peut envoyer ses messages.
-       - Il ajoute d'autres utilisateurs à sa conversation en entrant le pseudo de l'utilisateur et en cliquant sur le bouton "ajouter".
+- Il ajoute d'autres utilisateurs à sa conversation en entrant le pseudo de l'utilisateur et en cliquant sur le bouton "ajouter".
     La partie inférieure:
-        -  Une zone de texte lui permet d'écrire son message et de l'envoyer grâce au bouton "Meow" situé sur la droite. 
-        -  A l'intérieur de la zone de texte, l'utilisateur a la possibilité d'ajouter un emoji à son texte; les emojis sont à choisir dans une liste déroulante. 
+-  Une zone de texte lui permet d'écrire son message et de l'envoyer grâce au bouton "Meow" situé sur la droite. 
+-  A l'intérieur de la zone de texte, l'utilisateur a la possibilité d'ajouter un emoji à son texte; les emojis sont à choisir dans une liste déroulante. 
     La partie centrale:
-        - Les messages de tous les utilisateurs qui participent à la conversation apparaissent dans la zone centrale. 
-        - Une fois un message envoyé, l'utilisateur a la possibilté de l'éditer en cliquant sur le bouton "modifier" qui se trouve à côté de chacun de ses messages. Au clic sur ce bouton, le message s'ouvre dans un formulaire dans lequel l'utilisateur peut lui apporter des modifications. Il a alors le choix de confirmer ses changements en cliquant sur le bouton "confirmer" à droite du formulaire ou de les annuler en cliquant sur le bouton "annuler" situé à la droite du formulaire. 
-        - Pour chaque message ajouté dans la conversation, tous les utilisateurs peuvent ajouter une réaction. Pour cela, ils cliquent sur l'émoticône thumb_up situé à droite du monde. Un compteur enregistre les nombres de "likes" pour chaque message. 
+- Les messages de tous les utilisateurs qui participent à la conversation apparaissent dans la zone centrale. 
+- Une fois un message envoyé, l'utilisateur a la possibilté de l'éditer en cliquant sur le bouton "modifier" qui se trouve à côté de chacun de ses messages. Au clic sur ce bouton, le message s'ouvre dans un formulaire dans lequel l'utilisateur peut lui apporter des modifications. Il a alors le choix de confirmer ses changements en cliquant sur le bouton "confirmer" à droite du formulaire ou de les annuler en cliquant sur le bouton "annuler" situé à la droite du formulaire. 
+- Pour chaque message ajouté dans la conversation, tous les utilisateurs peuvent ajouter une réaction. Pour cela, ils cliquent sur l'émoticône thumb_up situé à droite du monde. Un compteur enregistre les nombres de "likes" pour chaque message. 
 
 L'utilisateur peut accèder à l'espace membre en cliquant sur son pseudo, à gauche de l'écran. Il est d'abord redirigé vers la page de profil [http://localhost:8000/pages/profil.php] puis, s'il le désire, vers la page de modification de profil [http://localhost:8000/pages/modif_profil.php]s'il souhaite éditer ses informations.
 
-   - La page de profil [src/pages/profil.php] est une page simple qui sert à afficher les informations de l'utilisateur.
+- La page de profil [src/pages/profil.php] est une page simple qui sert à afficher les informations de l'utilisateur.
     Au chargement, la session de l'utilisateur est démarrée grâce à un session_start(); On récupère les données dans la BDD afin de les afficher sur l'interface  grâce à un echo des fonctions "getPseudo, getLastname, getFirstname, getEmail" qui ont été mises en place dans le fichier [src/class/User.php].
     La partie ronde avec le logo du messenger Meow est l'endroit supposé afin d'afficher l'avatar de l'utilisateur, mais n'a pas encore été mis en place.
     Un début de code prévu à cet effet se trouve dans le fichier [src/traitements/avatar.php].
