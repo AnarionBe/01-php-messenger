@@ -9,12 +9,12 @@ Sur cette deuxième page, [http://localhost:8000/pages/login.php], l'utilisateur
 Important: une fonction htmlspecialchars empêche l'utilisateur d'injecter du HTML ou du JS dans les chaines de la page.
 
 L'utilisateur est redirigé vers la page de chat [http://localhost:8000/index.php].
-    Sur la gauche: 
-        - Les données d'identification de l'utilisateur courant apparaissent: son identifiant et son adresse mail. En cliquant sur son identifiant, l'utilisateur est redirigé vers l'espace membre.
-        - Avec le bouton juste en dessous, il a la possibilité de se déconnecter. 
-        - Un champ libre et un bouton "submit" permet à l'utilisateur de créer une conversation en lui donnant un intitulé. 
-        - Une fois cette conversation créée, elle apparait aussi dans la partie gauche de l'écran. En cliquant sur son titre, l'utilisateur peut envoyer ses messages.
-        - Il ajoute d'autres utilisateurs à sa conversation en entrant le pseudo de l'utilisateur et en cliquant sur le bouton "ajouter".
+Sur la gauche: 
+       - Les données d'identification de l'utilisateur courant apparaissent: son identifiant et son adresse mail. En cliquant sur son identifiant, l'utilisateur est redirigé vers l'espace membre.
+- Avec le bouton juste en dessous, il a la possibilité de se déconnecter. 
+- Un champ libre et un bouton "submit" permet à l'utilisateur de créer une conversation en lui donnant un intitulé. 
+- Une fois cette conversation créée, elle apparait aussi dans la partie gauche de l'écran. En cliquant sur son titre, l'utilisateur peut envoyer ses messages.
+       - Il ajoute d'autres utilisateurs à sa conversation en entrant le pseudo de l'utilisateur et en cliquant sur le bouton "ajouter".
     La partie inférieure:
         -  Une zone de texte lui permet d'écrire son message et de l'envoyer grâce au bouton "Meow" situé sur la droite. 
         -  A l'intérieur de la zone de texte, l'utilisateur a la possibilité d'ajouter un emoji à son texte; les emojis sont à choisir dans une liste déroulante. 
